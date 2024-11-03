@@ -1,34 +1,78 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+import './App.scss'
+import { Canvas, useFrame } from '@react-three/fiber'
+import { Html, ScrollControls, useScroll } from '@react-three/drei'
+import { useLayoutEffect, useRef, useEffect } from 'react'
+import { gsap } from 'gsap'
+import { useThree } from '@react-three/fiber'
+
+
+// components imports
+import Welcome from './components/welcome/welcome'
+import UI from './components/UI/UI'
+
+
+const App = ()=>{
+
+
+  return  <div className='app-container' >
+        <Canvas
+          shadows
+          gl={{ preserveDrawingBuffer: true }}
+          camera={{
+            fov: 25,
+            near: 0.1,
+            far: 100,
+            position: [0, 0, 20],
+          }}
+        >
+            <ScrollControls damping={0.5} pages={3}>
+              <FINTEKKERS />
+            </ScrollControls>
+           
+        </Canvas>
+
+       </div>
+  
+}
+
+const FINTEKKERS = () => {
+
+  // responsiveness
+    const { camera } = useThree();
+
+    useEffect(() => {
+        const handleResize = () => {
+          camera.aspect = window.innerWidth / window.innerHeight;
+          camera.updateProjectionMatrix();
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+      }, [camera]);
+
+  // gsap animation settings
+  const tl = useRef(null);
+  const scroller = useScroll()
+ 
+ 
+
+  useLayoutEffect(()=>{
+   tl.current = gsap.timeline({
+      defaults: { duration: 1, ease: "power1.inOut" }
+  });
+  },[])
+
+   useFrame((_state, _delta) => {
+    tl?.current.seek(scroller.offset * tl?.current.duration());
+  });
+
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <Html>
+       <Welcome tl={tl?.current} />
+       <UI />
+    </Html>
   )
 }
 

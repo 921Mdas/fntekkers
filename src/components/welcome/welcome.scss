@@ -1,0 +1,21 @@
+@import "../../App.scss";
+
+.welcome {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 90vw;
+  text-align: center;
+}
+
+.headline {
+  font-size: clamp(3rem, 3vw + 2rem, 5rem);
+  font-weight: bold;
+  letter-spacing: .1em;
+  color: var(--text-color);
+}
+
+.subheadline{
+  color: var(--text-color);
+}

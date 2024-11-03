@@ -1,0 +1,94 @@
+@import "../../App.scss";
+
+/* Customize the scrollbar */
+::-webkit-scrollbar {
+  width: 6px; /* Width of the scrollbar */
+  height: 6px; /* Height of the scrollbar (for horizontal scrollbars) */
+}
+
+/* Track (background) of the scrollbar */
+::-webkit-scrollbar-track {
+  background: #ffffff; /* Color of the scrollbar track */
+  border-radius: 10px; /* Rounded corners */
+}
+
+/* Handle (the draggable part) of the scrollbar */
+::-webkit-scrollbar-thumb {
+  background: rgb(125, 124, 124); /* Color of the handle */
+  border-radius: 10px; /* Rounded corners */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Color when hovering over the handle */
+}
+
+/* Handle when active (dragging) */
+::-webkit-scrollbar-thumb:active {
+  background: #333; /* Color when actively dragging */
+}
+
+
+// UI components
+.UI{
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  left: -50vw;
+  top: -50vh;
+  display: flex;
+  justify-content: end;
+  padding: 1em;
+}
+
+  //  dark mode
+  // Container styling for positioning
+.toggle-container {
+  display: inline-block;
+  position: relative;
+}
+
+// Hidden checkbox input
+input[type="checkbox"] {
+  display: none;
+}
+
+// Toggle switch base styling
+.toggle-label {
+  width: 50px;
+  height: 26px;
+  background-color: #1b6f85;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+// Toggle ball styling
+.toggle-ball {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  background-color: #c2d1d5;
+  border-radius: 50%;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+// Toggle on styling
+input[type="checkbox"]:checked + .toggle-label {
+  background-color: #258ea8;
+}
+
+input[type="checkbox"]:checked + .toggle-label .toggle-ball {
+  transform: translateX(24px);
+  background-color: #53e3a6;
+}
+
+// Glow effect on hover
+.toggle-label:hover {
+  box-shadow: 0 0 8px rgba(37, 142, 168, 0.6);
+}

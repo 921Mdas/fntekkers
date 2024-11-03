@@ -1,0 +1,90 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300&family=Roboto:wght@400;700;900&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  padding: 0;
+  margin: 0;
+}
+
+.OutlineX {
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: whitesmoke;
+  opacity: 0.5;
+}
+
+
+:root{
+  // day mode colors
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --primary-color: #1b6f85;
+  --primary-button: #258ea8;
+  --border-color: #164e63;
+  --grey: #c2d1d5;
+  // fonts
+  --mono-font: "Roboto Mono", monospace;
+  --roboto-font: "Roboto", sans-serif;
+  --helvetica: "Helvetica";
+  --Lato: " Lato, sans-serif";
+  --Dancing: "Dancing Script", cursive;
+  --pen: "Great Vibes", cursive;
+
+}
+
+
+
+html, body, #root, .app-container {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: var(--bg-color);
+}
+
+
+
+
+// mixins
+@mixin flex($fd, $jc, $ai, $gap) {
+  display: flex;
+  flex-direction: $fd;
+  justify-content: $jc;
+  align-items: $ai;
+  gap: $gap;
+}
+
+// dark mode colors
+.dark-mode {
+  --bg-color: #0c3a46;
+  --text-color: #ffffff;
+  --primary-color: #164e63;
+  --primary-button: #1b6f85;
+  --border-color: #5a96a3;
+  --grey: #8a9ba5;
+}
+
+
+// default classes 
+.glass_background{
+  border: solid 1px #c2d1d5;
+  backdrop-filter: blur(13px) saturate(180%);
+  -webkit-backdrop-filter: blur(13px) saturate(180%);
+  background-color: #0b2e367e;
+  border-radius: 12px;
+  border: 1px solid #5a96a37e;
+}
