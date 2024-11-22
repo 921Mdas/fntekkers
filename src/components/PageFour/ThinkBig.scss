@@ -1,0 +1,113 @@
+@import "../../App.scss";
+
+
+.ThinkBig{
+    grid-row: 9/9;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3,1fr);
+  @extend .pages_reset;  
+  color: var(--text-color);
+
+}
+
+.headline_container{
+    position: relative;
+     perspective: 1000px;
+
+
+    .headline_thinkbig{
+        font-size: 2rem;
+        @include flex(column, center, start, 0em);
+        padding: 1em;
+        position: relative;
+        z-index: 1000;
+        line-height: 1.2em;
+    }
+
+    .headline_thinkbig span{
+        font-size: 4rem ;
+        color: var(--dark-highlight-color);
+        margin-left: .5em;
+    }
+
+    .svg_thinkbig{
+        width: 8vw;
+        position: absolute;
+        left: 0;
+        top: -60px;
+        transform: rotateZ(180deg);
+    }
+}
+
+.thinkbig_orgs{
+        display: grid;
+        grid-template-columns:repeat(3,1fr);
+        justify-content: center;
+        align-items: center;
+        justify-items: center;
+        width: 100%;
+
+        .traditional_corp{
+            border: solid 1px var( --border-light);
+            padding: 1em;
+            border-radius: 10px;
+
+        }
+        .start_ups{
+           border: solid 1px var(--bg-color-light);
+           padding: 1em;
+           border-radius: 10px;
+
+        }
+
+
+}
+
+.thinkbig_content{
+     display: grid;
+     grid-template-columns: repeat(3, 1fr);
+     justify-content: center;
+        align-items: center;
+        justify-items: center;
+        gap: 1em;
+
+        &:nth-child(n){
+            padding: 1em;
+        }
+    
+}
+
+.fromraw_content, .revenue_share{
+    text-align: center;
+}
+
+.revenue_share{
+    border: solid 1px var(--bg-color-light);
+    padding: 1em;
+    border-radius: 10px;
+            line-height: 2em;
+
+}
+
+.fromraw_content{
+            border: solid 1px var( --border-light);
+            padding: 1em;
+            border-radius: 10px;
+            line-height: 2em;
+
+}
+
+.thinkbig_number, .thinkbig_number_revenue_share{
+    font-weight: bold;
+    color: var(--numbers-color);
+    font-size: 1.5rem;
+
+}
+
+.fintekkers_title{
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--dark-highlight-color);
+}

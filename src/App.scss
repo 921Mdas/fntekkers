@@ -1,5 +1,5 @@
 
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300&family=Roboto:wght@400;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 *,
 *::before,
@@ -28,13 +28,19 @@ h6 {
 
 
 :root{
-  // day mode colors
-  --bg-color: #ffffff;
-  --text-color: #000000;
-  --primary-color: #1b6f85;
-  --primary-button: #258ea8;
-  --border-color: #164e63;
-  --grey: #c2d1d5;
+   --bg-color: #132c35;
+   --text-color: #e3e6e6;
+   --bg-color-light: #1f4958;
+   --border-light: #e3e6e65d;
+
+
+  --numbers-color:#02afaa;
+  --highlight-color:#fec100;
+  // --dark-highlight-color:#db5602;
+  --dark-highlight-color:#fc6459;
+  
+
+
   // fonts
   --mono-font: "Roboto Mono", monospace;
   --roboto-font: "Roboto", sans-serif;
@@ -42,21 +48,21 @@ h6 {
   --Lato: " Lato, sans-serif";
   --Dancing: "Dancing Script", cursive;
   --pen: "Great Vibes", cursive;
+  --poppins:"Poppins", sans-serif;
 
 }
 
 
 
 html, body, #root, .app-container {
-  width: 100vw;
-  height: 100vh;
+  // width: 99vw;
+  height: 600vh;
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  overflow-x: hidden;
   background-color: var(--bg-color);
+  font-family:var(--poppins)
 }
-
-
 
 
 // mixins
@@ -68,15 +74,20 @@ html, body, #root, .app-container {
   gap: $gap;
 }
 
-// dark mode colors
-.dark-mode {
-  --bg-color: #0c3a46;
-  --text-color: #ffffff;
-  --primary-color: #164e63;
-  --primary-button: #1b6f85;
-  --border-color: #5a96a3;
-  --grey: #8a9ba5;
-}
+// // dark mode colors
+// .dark-mode {
+//   --bg-color: #132c35;
+//   --text-color: #e3e6e693;
+
+//   --numbers-color:#02afaa;
+//   --highlight-color:#fec100;
+//   --dark-highlight-color:#db5602;
+
+//   // --primary-color: #164e63;
+//   // --primary-button: #1b6f85;
+//   // --border-color: #5a96a3;
+//   // --grey: #8a9ba5;
+// }
 
 
 // default classes 
@@ -87,4 +98,31 @@ html, body, #root, .app-container {
   background-color: #0b2e367e;
   border-radius: 12px;
   border: 1px solid #5a96a37e;
+}
+
+// main container
+.project_container{
+  width: 100vw;
+  height: max-content;
+  display: grid;
+  grid-template-columns:repeat(3,1fr);
+  grid-template-rows: repeat(11,50vh) ;
+  gap: 1em;
+  background-color: var(--bg-color);
+  overflow-y: scroll;
+}
+
+// pages reset
+
+.pages_reset{
+   width: 85vw;
+   margin: 0 auto;
+   display: grid;
+   justify-content: center;
+   align-items: center;
+   justify-items: center;
+   height: max-content;
+   overflow: none;
+   grid-column: 1/-1;
+
 }
