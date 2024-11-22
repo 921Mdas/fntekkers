@@ -9,10 +9,10 @@ const UI = () => {
 
   return (
         <div className="UI">
-          <div class="toggle-container" >
+          <div className="toggle-container" >
                   <input type="checkbox" id="darkmode-toggle" onClick={()=>toggleDarkMode()} />
-                  <label for="darkmode-toggle" class="toggle-label">
-                    <span class="toggle-ball"></span>
+                  <label htmlFor="darkmode-toggle" className="toggle-label">
+                    <span className="toggle-ball"></span>
                   </label>
           </div>
         </div>
