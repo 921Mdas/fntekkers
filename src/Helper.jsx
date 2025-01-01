@@ -9,13 +9,14 @@ if (typeof window !== 'undefined' && gsap) {
 
 export function useScrollAnimation({
   trigger,
-  start ,
+  start,
   end,
   markers = false,
   scrub = true,
-  pin=false,
+  pin = false,
   toggleActions = "restart pause restart pause",
   animations = [],
+  onUpdate,
 }) {
   useEffect(() => {
     const tl = gsap.timeline({
@@ -27,6 +28,7 @@ export function useScrollAnimation({
         scrub,
         pin,
         toggleActions,
+        onUpdate,
       },
     });
 
@@ -39,8 +41,45 @@ export function useScrollAnimation({
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
-  }, [trigger, start, end, markers, scrub, toggleActions, animations]);
+  }, [trigger, start, end, markers, scrub, toggleActions, animations, onUpdate]);
 }
+
+
+// export function useScrollAnimation({
+//   trigger,
+//   start ,
+//   end,
+//   markers = false,
+//   scrub = true,
+//   pin=false,
+//   toggleActions = "restart pause restart pause",
+//   animations = [],
+// }) {
+//   useEffect(() => {
+//     const tl = gsap.timeline({
+//       scrollTrigger: {
+//         trigger,
+//         start,
+//         end,
+//         markers,
+//         scrub,
+//         pin,
+//         toggleActions,
+//       },
+//     });
+
+//     // Apply each animation in the animations array
+//     animations.forEach(({ from, to, selector }) => {
+//       tl.fromTo(selector, from, to);
+//     });
+
+//     // Cleanup on component unmount
+//     return () => {
+//       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+//     };
+
+//   }, [trigger, start, end, markers, scrub, toggleActions, animations]);
+// }
 
 export function Counter({ end, duration }) {
   const [count, setCount] = useState(0);
@@ -88,3 +127,13 @@ export function Counter({ end, duration }) {
 
   return <span ref={counterRef}>{count}</span>;
 }
+
+export const typeText = (index, text, subheadlineElement) => {
+  if (index < text.length && subheadlineElement) {
+    subheadlineElement.innerHTML +=
+      text[index] === '\n' ? '<br/>' : text[index];
+    setTimeout(() => typeText(index + 1, text, subheadlineElement), 50); // Pass the updated index
+  } else if (!subheadlineElement) {
+    console.error('Subheadline element not found:', subheadlineElement);
+  }
+};

@@ -36,8 +36,10 @@ h6 {
 
   --numbers-color:#02afaa;
   --highlight-color:#fec100;
-  // --dark-highlight-color:#db5602;
+  --highlight-yellow-color:#bd9202;
+  --highlight-color:#db5602;
   --dark-highlight-color:#fc6459;
+  --dark-red-color:#870b02;
   
 
 
@@ -60,8 +62,12 @@ html, body, #root, .app-container {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  background-color: var(--bg-color);
-  font-family:var(--poppins)
+  // background-color: var(--bg-color);
+  font-family:var(--poppins);
+  background-image: url("./assets-images/589.jpg");
+  background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;
 }
 
 
@@ -74,20 +80,6 @@ html, body, #root, .app-container {
   gap: $gap;
 }
 
-// // dark mode colors
-// .dark-mode {
-//   --bg-color: #132c35;
-//   --text-color: #e3e6e693;
-
-//   --numbers-color:#02afaa;
-//   --highlight-color:#fec100;
-//   --dark-highlight-color:#db5602;
-
-//   // --primary-color: #164e63;
-//   // --primary-button: #1b6f85;
-//   // --border-color: #5a96a3;
-//   // --grey: #8a9ba5;
-// }
 
 
 // default classes 
@@ -108,7 +100,7 @@ html, body, #root, .app-container {
   grid-template-columns:repeat(3,1fr);
   grid-template-rows: repeat(11,50vh) ;
   gap: 1em;
-  background-color: var(--bg-color);
+  // background-color: var(--bg-color);
   overflow-y: scroll;
 }
 
@@ -124,5 +116,11 @@ html, body, #root, .app-container {
    height: max-content;
    overflow: none;
    grid-column: 1/-1;
+}
 
+.pages_reset_basic{
+   width: 85vw;
+   margin: 0 auto;
+   height: max-content;
+   overflow: none;
 }

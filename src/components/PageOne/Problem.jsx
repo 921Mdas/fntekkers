@@ -20,7 +20,7 @@ const Problem = () => {
 
     useScrollAnimation({
     trigger: ".problem_statement",
-    start: "top 95%",
+    start: "top 100%",
     end: "bottom 100%",
     scrub: true,
     toggleActions: "restart none none none",

@@ -7,6 +7,9 @@ import Services from './components/PageTwo/Services';
 import Revenue from './components/PageThree/Revenue';
 import ThinkBig from './components/PageFour/ThinkBig';
 import Headcount from './components/PageFive/Headcount';
+import AssetManager from './components/PageSix/AssetManager';
+import AMRoutine from './components/PageSeven/AMRoutine';
+import CostRevenue from './components/PageEight/CostRevenue';
 import './App.scss'; // Make sure to style as needed
 
 
@@ -16,11 +19,14 @@ const App = () => {
     <div className='project_container'>
      <UI />
      <Welcome />
-     <Problem />
+     <AssetManager />
+     <AMRoutine />
+     <CostRevenue />
      <Services />
-     <Revenue /> 
-     <ThinkBig />
-     <Headcount />
+     {/* <Problem /> */}
+      {/* <Revenue />  */}
+     {/* <ThinkBig /> */}
+     {/* <Headcount />  */}
     </div>
   );
 };

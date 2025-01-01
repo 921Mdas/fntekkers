@@ -6,7 +6,7 @@
   padding: 1em;
   @extend .pages_reset;  
   // grid-row: 3/3;
-  border: solid 1px blue;
+  // border: solid 1px blue;
 
 }
 
@@ -107,12 +107,31 @@
 
 
 // Media queries
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 950px) {
   .page_one {
     grid-template-columns: 1fr;
+    width: 100%;
+    height: max-content;
   }
 
+  .problem_statement{
+    margin-bottom: 2em;
+  }
+
+   .problem_list{
+       display: grid;
+       grid-template-columns: 1fr;
+      
+    }
+
+   .problem_headline, .problem_subheadline{
+    text-align: center
+   }
+
   .whyfintekkers {
-    @include flex(column, start, start, 1em);
+    @include flex(column, center, center, 1em);
+
   }
 }
+
+

@@ -3,8 +3,7 @@
 .Services{
     color: var(--text-color);
     @extend .pages_reset;  
-    grid-row: 4/6;
-    border: solid 1px rgb(174, 255, 0);
+    grid-row: 8/8;
     margin-top: 2em;
 
 
@@ -201,4 +200,16 @@ background-color: none;
     position: absolute;
     left: 40%;
     top: 30%;
+}
+
+
+@media screen and (max-width: 950px) {
+
+    .Services{
+     grid-row: 5/6;
+     margin-top: 12em;
+     width: 100%;
+     padding: 1em;
+    }
+
 }

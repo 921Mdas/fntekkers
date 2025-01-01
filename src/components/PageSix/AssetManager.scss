@@ -1,0 +1,119 @@
+@import "../../App.scss";
+
+
+.assetmanager_container{
+    @extend .pages_reset_basic;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    grid-column: 1/-1;
+    color:var(--text-color)
+}
+
+.asset_hero_section{
+    display: grid;
+    grid-template-columns:repeat(5,1fr);
+    gap: 1em;
+}
+
+.asset_bin{
+    position: absolute;
+    left: -10%;
+    bottom: -10%;
+    opacity: .5;
+    color: #5b5959;
+}
+
+
+.asset_hero_section_graphics{
+    border: solid 1px var(--border-light);
+    grid-column: 1/3;
+    border-radius: 10px;
+}
+
+.asset_hero_section_graphics, .asset_hero_section_group{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+
+
+@keyframes tilt {
+    0%, 100% {
+        transform: rotate(-15deg);
+    }
+    50% {
+        transform: rotate(-5deg);
+    }
+}
+
+
+.asset_hero_section_group_one{
+    .asset_hero_graph {
+        padding: 1em;
+        border-radius: 10px;
+        position: absolute;
+    
+        &:nth-child(1) {
+            left: 25%;
+            top: 0%;
+            background-color: var(--numbers-color);
+            // animation: tilt 3s infinite ease-in-out;
+        }
+        &:nth-child(2) {
+            left: 25%;
+            top: 20%;
+            // transform: rotate(10deg);
+            background-color: var(--highlight-yellow-color);
+        }
+        &:nth-child(3) {
+            left: 25%;
+            top: 40%;
+            background-color: var(--highlight-color);
+        }
+        &:nth-child(4) {
+            left: 25%;
+            top: 60%;
+            background-color: var(--border-light);
+        }
+        &:nth-child(5) {
+            left: 25%;
+            top: 80%;
+            background-color: var(--dark-red-color);
+        }
+        &:nth-child(6) {
+            // left: 3%;
+            // top: 70%;
+            background-color: var(--border-light);
+             text-decoration: line-through;
+             transform: rotate(5deg);
+        }
+        &:nth-child(7) {
+            left: 0%;
+            // top: 47%;
+            background-color: var(--border-light);
+            text-decoration: line-through;
+             transform: rotate(-10deg);
+
+        }
+   
+    }
+}
+
+
+
+.asset_hero_section_text{
+    grid-column: 3/-1;
+
+    h1{
+        width: 30vw;
+    }
+
+    h2{
+        width: 40vw;
+    color: var(--numbers-color);
+
+    }
+}

@@ -99,7 +99,7 @@ useScrollAnimation({
 
     return (
         <div className='Services'>
-            <h2 className="Services_headline">
+            {/* <h2 className="Services_headline">
                 Everyone needs the same basic services, and they rebuild them time and time again
             </h2>
             <div className="Service_blocks_container">
@@ -116,7 +116,7 @@ useScrollAnimation({
                     ))
                 }
             
-            </div>
+            </div> */}
 
             <div className="services_notes_stats">
             <div className="Services_note">

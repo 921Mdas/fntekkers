@@ -1,0 +1,89 @@
+@import "../../App.scss";
+
+
+.cost_revenue_container{
+    color: white;
+    @extend .pages_reset; 
+    // border: solid 1px red;
+    width: 100vw;
+    position: relative;
+    height: max-content;
+    align-items:start;
+    grid-row: 6/6;
+    display: grid;
+   
+
+}
+
+.cost_revenue{
+    // border: solid 1px rgb(0, 208, 255);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 10vh 1fr 20vh;
+}
+
+.Buttons_actions{
+    // border: solid 1px red;
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+
+    button{
+        width: 8vw;
+        font-weight: bold;
+        
+    }
+}
+
+.cost_rev_title{
+    
+     font-size: 2rem;
+     font-weight: bold;
+     @include flex(row, center, center, 0);
+}
+
+.cost_rev_graphs{
+    // border: solid 1px blue;
+    width: 100%;
+    
+}
+
+.cost_rev_item{
+    display: grid;
+    grid-template-columns: 20vw 60vw;
+    padding: 1em;
+}
+
+.cost_rev_item_title{
+        border: solid 1px var(--text-color);
+
+    @include flex(row, center, center, 0);
+        border-radius: 10px;
+
+}
+
+.cost_rev_item_elements{
+    display: grid;
+    grid-template-columns: repeat(5, 10vw);
+    grid-template-rows: 8vh;
+    gap: 1em;
+    justify-content: center;
+
+    div:nth-child(n){
+        border: solid 1px var(--text-color);
+        text-align: center;
+         @include flex(row, center, center, 0);
+        border-radius: 10px;
+    }
+    
+}
+
+.cost_bar_chart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 1em;
+    // border: solid 1px yellow;
+    margin-top: 1em;
+}
