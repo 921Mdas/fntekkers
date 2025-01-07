@@ -121,7 +121,7 @@ useScrollAnimation({
             <div className="services_notes_stats">
             <div className="Services_note">
                 <span className='icon_container'><FaGripLinesVertical size={iconSize + 100}/></span>
-                <p>Industry wastefully rebuilds these systems many times despite having <span>99%</span> <br/> the same requirements</p>
+                <p>Industry wastefully rebuilds these systems many times despite having 99% <br/> the same requirements</p>
             </div>
             <div className="arrow_svg">
                 <HiMiniArrowTrendingUp size={iconSize + 60} />

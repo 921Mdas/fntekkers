@@ -2,7 +2,6 @@ import { useEffect, useState, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-// Register ScrollTrigger if not already registered
 if (typeof window !== 'undefined' && gsap) {
   gsap.registerPlugin(ScrollTrigger);
 }
@@ -44,42 +43,6 @@ export function useScrollAnimation({
   }, [trigger, start, end, markers, scrub, toggleActions, animations, onUpdate]);
 }
 
-
-// export function useScrollAnimation({
-//   trigger,
-//   start ,
-//   end,
-//   markers = false,
-//   scrub = true,
-//   pin=false,
-//   toggleActions = "restart pause restart pause",
-//   animations = [],
-// }) {
-//   useEffect(() => {
-//     const tl = gsap.timeline({
-//       scrollTrigger: {
-//         trigger,
-//         start,
-//         end,
-//         markers,
-//         scrub,
-//         pin,
-//         toggleActions,
-//       },
-//     });
-
-//     // Apply each animation in the animations array
-//     animations.forEach(({ from, to, selector }) => {
-//       tl.fromTo(selector, from, to);
-//     });
-
-//     // Cleanup on component unmount
-//     return () => {
-//       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-//     };
-
-//   }, [trigger, start, end, markers, scrub, toggleActions, animations]);
-// }
 
 export function Counter({ end, duration }) {
   const [count, setCount] = useState(0);

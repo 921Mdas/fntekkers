@@ -56,31 +56,31 @@ useScrollAnimation({
 
           <div className="clients_content">
             <div className="client_A">
-                <div className="client_A_needs">
-                <span><IoPerson /> <span>John Doe</span> </span>   <br/>
-                <span> <FaRegMessage /> <span>I want to buy equities</span> </span> <br/>
-                <span> <GoGoal /> <span>Retirement: build savings</span></span>  
+                <div className="client_A_needs client_asset_manager_link_one">
+                <span> <IoPerson size={15}  /> <span>John Doe</span> </span>   <br/>
+                <span> <FaRegMessage size={15} /> <span>I want to buy equities</span> </span> <br/>
+                <span> <GoGoal size={15}/> <span>Retirement: build savings</span></span>  
                 </div>
             </div>
             <div className="client_B">
-                <div className="client_B_needs">
-                <span><IoPerson /> <span>Jane Doe</span> </span>   <br/>
-                <span> <FaRegMessage /> <span>Draw $100k P/A</span> </span> <br/>
-                <span> <GoGoal /> <span>Cover retirement</span></span>  
+                <div className="client_B_needs client_asset_manager_link_two">
+                <span><IoPerson size={15}/> <span>Jane Doe</span> </span>   <br/>
+                <span> <FaRegMessage size={15} /> <span>Draw $100k P/A</span> </span> <br/>
+                <span> <GoGoal size={15} /> <span>Cover retirement</span></span>  
                 </div>
             </div>
             <div className="client_C">
-                <div className="client_C_needs">
-                <span><IoPerson /> <span>ABC</span> </span>   <br/>
-                <span> <FaRegMessage /> <span>Fund retirement</span> </span> <br/>
-                <span> <GoGoal /> <span>Create Trust Fund</span></span>  
+                <div className="client_C_needs client_asset_manager_link_three">
+                <span><IoPerson size={15}/> <span>ABC</span> </span>   <br/>
+                <span> <FaRegMessage size={15}/> <span>Fund retirement</span> </span> <br/>
+                <span> <GoGoal size={15}/> <span>Create Trust Fund</span></span>  
                 </div>
             </div>
             <div className="client_E">
-                <div className="client_E_needs">
-                <span><IoPerson /> <span>DEF</span> </span>   <br/>
-                <span> <FaRegMessage /> <span>Willing to pay premiums</span> </span> <br/>
-                <span> <GoGoal /> <span>Need coverage for assets</span></span>  
+                <div className="client_E_needs client_asset_manager_link_four">
+                <span><IoPerson size={15}/> <span>DEF</span> </span>   <br/>
+                <span> <FaRegMessage size={15} /> <span>Willing to pay premiums</span> </span> <br/>
+                <span> <GoGoal size={15}/> <span>Need coverage for assets</span></span>  
                 </div>
             </div>
             {/* <div className="lines_draw">
@@ -117,16 +117,16 @@ useScrollAnimation({
     
           <div className="asset_manager">
               
-              <div className="asset_manager_needs equity">
+              <div className="asset_manager_needs equity client_asset_manager_link_one">
               <span> <IoPerson /> <span>Equity Asset Manager</span> </span> <br/>
               </div>
-              <div className="asset_manager_needs">
+              <div className="asset_manager_needs client_asset_manager_link_two">
               <span> <IoPerson /> <span>Retirement Advisor</span> </span> <br/>
               </div>
-              <div className="asset_manager_needs">
+              <div className="asset_manager_needs client_asset_manager_link_three">
               <span> <IoPerson /> <span>Full Service Asset Manager</span> </span> <br/>
               </div>
-              <div className="asset_manager_needs">
+              <div className="asset_manager_needs client_asset_manager_link_four">
               <span> <IoPerson /> <span>Insurance firm</span> </span> <br/>
               </div>
         
@@ -134,29 +134,29 @@ useScrollAnimation({
 
          <div className="asset_common_questions">
               <div className="question question_one">
-                  <div className="question_model_one">What exists I can Invest In?</div>
-                    <div className='question_question'>Security Model</div>
-                    <div className="question_model_two">Client need assets that match their need. What's available?</div>
+                  <div className="question_model_one link_one">What exists I can Invest In?</div>
+                    <div className='question_question link_one'>Security Model</div>
+                    <div className="question_model_two link_one">Client need assets that match their need. What's available?</div>
               </div>
               <div className="question question_two">
-                  <div className="question_model_one">What's the value?</div>
-                    <div className='question_question'>Market Data</div>
-                    <div className="question_model_two">What's the current value of security? Does it pay Dividend?</div>
+                  <div className="question_model_one link_two ">What's the value?</div>
+                    <div className='question_question link_two'>Market Data</div>
+                    <div className="question_model_two link_two">What's the current value of security? Does it pay Dividend?</div>
               </div>
               <div className="question question_three">
-                  <div className="question_model_one">How many do I own?</div>
-                    <div className='question_question'>Ledger</div>
-                    <div className="question_model_two">What's the price you bought them at?</div>
+                  <div className="question_model_one link_three">How many do I own?</div>
+                    <div className='question_question link_three'>Ledger</div>
+                    <div className="question_model_two link_three">What's the price you bought them at?</div>
               </div>
               <div className="question question_four">
-                  <div className="question_model_one">Did I make money?</div>
-                    <div className='question_question'>P&L</div>
-                    <div className="question_model_two">How much did you make? short term vs long term gains</div>
+                  <div className="question_model_one link_four">Did I make money?</div>
+                    <div className='question_question link_four'>P&L</div>
+                    <div className="question_model_two link_four">How much did you make? short term vs long term gains</div>
               </div>
               <div className="question question_five">
-                  <div className="question_model_one">What will drive future profits and losses?</div>
-                    <div className='question_question'>Risk</div>
-                    <div className="question_model_two">How will the price move in response to interest rates?</div>
+                  <div className="question_model_one link_five">What will drive future profits and losses?</div>
+                    <div className='question_question link_five'>Risk</div>
+                    <div className="question_model_two link_five">How will the price move in response to interest rates?</div>
               </div>
         </div> 
     

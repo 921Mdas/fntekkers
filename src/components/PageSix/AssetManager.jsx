@@ -2,7 +2,6 @@ import React, {useEffect} from 'react';
 import "./AssetManager.scss";
 import { useScrollAnimation } from '../../Helper';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { RiDeleteBin7Line } from "react-icons/ri";
 import { IoTimeOutline } from "react-icons/io5";
 import { GiReceiveMoney } from "react-icons/gi";
 
@@ -42,7 +41,7 @@ const AssetManager = () => {
 
             <div className="asset_hero_section_graphics">
           
-                     <div className=" asset_hero_section_group asset_hero_section_group_one">
+                     <div className="asset_hero_section_group asset_hero_section_group_one">
                                 <div className="asset_hero_graph asset_hero_graph_one">Security Model</div>
                                 <div className="asset_hero_graph asset_hero_graph_two">Market Data</div>
                                 <div className="asset_hero_graph asset_hero_graph_three">Ledger</div>

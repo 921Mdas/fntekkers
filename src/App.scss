@@ -1,4 +1,3 @@
-
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 *,
@@ -8,7 +7,6 @@
   padding: 0;
   margin: 0;
 }
-
 
 h1,
 h2,
@@ -26,52 +24,50 @@ h6 {
   opacity: 0.5;
 }
 
-
-:root{
-   --bg-color: #132c35;
-   --text-color: #e3e6e6;
-   --bg-color-light: #1f4958;
-   --border-light: #e3e6e65d;
-
-
-  --numbers-color:#02afaa;
-  --highlight-color:#fec100;
-  --highlight-yellow-color:#bd9202;
-  --highlight-color:#db5602;
-  --dark-highlight-color:#fc6459;
-  --dark-red-color:#870b02;
-  
+:root {
+  --bg-color: #132c35;
+  --text-color: #e3e6e6;
+  --bg-color-light: #1f4958;
+  --border-light: #e3e6e65d;
+  --numbers-color: #02afaa;
+  --highlight-color: #db5602;
+  --highlight-yellow-color:rgba(255, 204, 0, 0.848);
+  --dark-highlight-color: #fc6459;
+  --dark-red-color: #870b02;
 
 
-  // fonts
+ --grey-color:rgb(165, 164, 164);
+ --darkgreen-color:#027a76;
+ --lightblue:rgb(0, 191, 255);
+
   --mono-font: "Roboto Mono", monospace;
   --roboto-font: "Roboto", sans-serif;
   --helvetica: "Helvetica";
-  --Lato: " Lato, sans-serif";
+  --Lato: "Lato, sans-serif";
   --Dancing: "Dancing Script", cursive;
   --pen: "Great Vibes", cursive;
-  --poppins:"Poppins", sans-serif;
+  --poppins: "Poppins", sans-serif;
 
+
+  --small-screens: 480px;
+  --regular-mobile-start: 481px ;
+  --regular-mobile-end: 768px ;
+  --tablets-start: 769px ;
+  --tablets-end: 1024px ;
 }
 
-
-
 html, body, #root, .app-container {
-  // width: 99vw;
-  height: 600vh;
+  height: auto;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  // background-color: var(--bg-color);
-  font-family:var(--poppins);
+  font-family: var(--poppins);
   background-image: url("./assets-images/589.jpg");
   background-attachment: fixed;
   background-position: center center;
   background-size: cover;
 }
 
-
-// mixins
 @mixin flex($fd, $jc, $ai, $gap) {
   display: flex;
   flex-direction: $fd;
@@ -80,10 +76,7 @@ html, body, #root, .app-container {
   gap: $gap;
 }
 
-
-
-// default classes 
-.glass_background{
+.glass_background {
   border: solid 1px #c2d1d5;
   backdrop-filter: blur(13px) saturate(180%);
   -webkit-backdrop-filter: blur(13px) saturate(180%);
@@ -92,35 +85,84 @@ html, body, #root, .app-container {
   border: 1px solid #5a96a37e;
 }
 
-// main container
-.project_container{
+.project_container {
   width: 100vw;
   height: max-content;
   display: grid;
-  grid-template-columns:repeat(3,1fr);
-  grid-template-rows: repeat(11,50vh) ;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(11, 50vh);
   gap: 1em;
-  // background-color: var(--bg-color);
   overflow-y: scroll;
 }
 
-// pages reset
-
-.pages_reset{
-   width: 85vw;
-   margin: 0 auto;
-   display: grid;
-   justify-content: center;
-   align-items: center;
-   justify-items: center;
-   height: max-content;
-   overflow: none;
-   grid-column: 1/-1;
+.pages_reset {
+  width: 85vw;
+  margin: 0 auto;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  height: max-content;
+  grid-column: 1 / -1;
 }
 
-.pages_reset_basic{
-   width: 85vw;
-   margin: 0 auto;
-   height: max-content;
-   overflow: none;
+.pages_reset_basic {
+  width: 85vw;
+  margin: 0 auto;
+  height: max-content;
+}
+
+
+
+// Mobile responsive styles
+@media screen and (max-width: 390px) {
+  
+  .project_container {
+  width: 100vw;
+  height: max-content;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  gap: 1em;
+  overflow-y: scroll;
+}
+}
+
+@media screen and (min-width: 391px) and (max-width: 700px){
+  .project_container {
+  width: 100vw;
+  height: max-content;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  gap: 1em;
+  overflow-y: scroll;
+}
+}
+
+@media screen and (min-width: 701px) and (max-width: 899px){
+  .project_container {
+  width: 100vw;
+  height: max-content;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  gap: 1em;
+  overflow-y: scroll;
+}
+}
+
+
+/* Target screens between 900px and 1200px */
+@media screen and (min-width: 900px) and (max-width: 1200px) {
+  .project_container {
+  width: 100vw;
+  height: max-content;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  gap: 1em;
+  overflow-y: scroll;
+}
+
 }

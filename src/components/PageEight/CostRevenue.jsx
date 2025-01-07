@@ -18,8 +18,8 @@ const CostRevenue = () => {
 
   // Set initial chart data based on the length of defaultTitles
   const initialChartData = [
-    { name: '$ Repeated Security Models', uv: 0, pv: 10, amt: defaultTitles.length * 0.1 },
-    { name: '$ Fintekkers Reusable Models', uv: 0, pv: 10, amt: (defaultTitles.length * 0.1) / 4 },
+    { name: 'Others', cost: 10, maintenance: 10, amt: defaultTitles.length * 0.1 },
+    { name: 'Fintekkers',cost: 0, maintenance: 0, amt: (defaultTitles.length * 0.1) / 4 },
   ];
 
   const [chartData, setChartData] = useState(initialChartData);
@@ -35,6 +35,22 @@ const CostRevenue = () => {
       }
       return prevItems; // Prevent adding more items if titles are exhausted
     });
+  
+    const newData =  chartData.map((data, idx)=>{
+        if(idx < 1 ){
+            data.cost += 20;
+            data.maintenance += 10;
+        }
+
+          if(idx > 0){
+            data.cost += 5;
+            data.maintenance += 2;
+        }
+
+       return data
+    })
+    // Directly set the new chart data
+    setChartData(newData);
   };
 
   const removeItem = () => {
@@ -45,25 +61,25 @@ const CostRevenue = () => {
       }
       return prevItems; // Keep the array as it is if it's the only item left
     });
+
+     const newData =  chartData.map((data, idx)=>{
+        if(idx < 1 & data.cost >= 10 && data.maintenance >= 10 ){
+            data.cost -= 20;
+            data.maintenance -= 10;
+        }
+
+          if(idx > 0 & data.cost > 0 && data.maintenance > 0 ){
+            data.cost -= 5;
+            data.maintenance -= 2;
+        }
+
+       return data
+    })
+    // Directly set the new chart data
+    setChartData(newData);
   };
 
-  useEffect(() => {
-    // Update chartData when the number of items changes
-    const repeatedModelsMaxAmt = 0.5; // Maximum value for repeated models
-    const fintekkersMaxAmt = 0.2; // Maximum value for Fintekkers
 
-    // Calculate the new values for the chart
-    const newRepeatedModelsAmt = Math.min(items.length * 0.1, repeatedModelsMaxAmt);
-    const newFintekkersAmt = Math.min(items.length * 0.05, fintekkersMaxAmt);
-
-    const newChartData = [
-      { name: '$ Repeated Security Models', uv: items.length * 1000, pv: 10, amt: newRepeatedModelsAmt },
-      { name: '$ Fintekkers Reusable Models', uv: items.length * 500, pv: 10, amt: newFintekkersAmt },
-    ];
-
-    // Directly set the new chart data
-    setChartData(newChartData);
-  }, [items]);
 
   return (
     <div className="cost_revenue_container">
