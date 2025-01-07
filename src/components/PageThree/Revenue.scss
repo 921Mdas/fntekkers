@@ -1,0 +1,153 @@
+@import "../../App.scss";
+
+
+.revenue_ops_container{
+  grid-row: 7/7;
+  padding: 1rem;
+  @extend .pages_reset;  
+  // border: solid 1px pink;
+  gap: 1em;
+}
+
+.revenue_ops_container{
+
+  h2{
+  color: var(--text-color);
+  text-align: center;
+  border: solid 1px var(--border-light);
+  padding: 1em;
+  border-radius: 10px;
+  margin-bottom: 1em;
+  }
+}
+
+.costs_container_bottom{
+div:nth-child(1) {
+    background: var(--highlight-color);
+    color: var(--background-color);
+}
+div:nth-child(2) {
+    background: var(--numbers-color);
+    color: var(--text-color);
+}
+div:nth-child(3) {
+    background: var(--border-light);
+    color: var(--text-color);
+}
+div:nth-child(4) {
+    background: var(--text-color);
+    color: var(--numbers-color);
+}
+div:nth-child(5) {
+    background: var(--bg-color-light);
+    color: var(--text-color);
+}
+div:nth-child(6) {
+    background: var(--dark-highlight-color);
+    color: var(--text-color);
+}
+
+}
+
+.costs_container_top{
+  div:nth-child(1){
+    background: var(--text-color);
+    color: var(--numbers-color);
+  }
+  div:nth-child(2){
+    background: var(--highlight-color);
+    color: var(--background-color);
+  }
+  div:nth-child(3){
+    background: var(--dark-highlight-color);
+    color: var(--text-color);
+  }
+  div:nth-child(4){
+    background: var(--bg-color-light);
+    color: var(--text-color);
+  }
+  div:nth-child(5){
+    background: var(--numbers-color);
+    color: var(--text-color);
+  }
+  div:nth-child(6){
+    background: var(--border-light);
+    color: var(--text-color);
+  }
+}
+
+.costs_container_top,.costs_container_bottom{
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  gap: 1em;
+  font-weight: bold;
+  
+
+
+  .cost_container_top{
+    border: solid 1px var(--border-light);
+    padding: 1em;
+    text-align: center;
+    color: var(--text-color);
+    margin-bottom: 2em;
+    border-radius: 10px;
+
+  }
+
+
+
+  .cost_container_bottom{
+    border: solid 1px var(--border-light);
+    padding: 1em;
+    text-align: center;
+    color: var(--text-color);
+    margin-top: 2em;
+    border-radius: 10px;
+
+  }
+}
+
+  .cost_container_middle{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: 8vh;
+    .cost_container_text_left, .cost_container_text_right{
+      color: var(--text-color);
+      text-align: center;
+      display: grid;
+      justify-content: center;
+      align-items: center;
+      border: solid 2px var(--border-light);
+      border-radius: 10px;
+      padding: 1em
+    }
+ 
+    .cost_container_text_right,.cost_container_text_left{
+      @include flex(row, center, center, 1em);
+    }
+  }
+
+     .svg_icon{
+      color: var(--text-color);
+      @include flex(row, center, center, 1em);
+    }
+
+    .profit_fintekkers{
+      padding: 1em;
+      margin-top: 0em;
+      text-align: center;
+      border-radius: 10px;
+      color: var(--text-color);
+      width: max-content;
+      margin: 0 auto;
+      border: solid 1px var(--border-light);
+
+      span{
+        font-size: 2rem;
+        color: var(--numbers-color);
+        font-weight: bold
+      }
+    }

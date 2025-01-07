@@ -1,19 +1,55 @@
-import React from 'react'
-import useStore from '../../../store'
-import { useLayoutEffect } from 'react';
-import { Html, Center } from '@react-three/drei';
+import React, { useEffect } from 'react';
+import { gsap } from 'gsap';
 import "./welcome.scss";
 
+const Welcome = () => {
+  useEffect(() => {
+    const tl = gsap.timeline({
+      defaults: {
+        duration: 1,
+        ease: "power2",
+      },
+    });
 
-const Welcome = ({tl}) => {
-
+    tl.fromTo(
+      '.headline',
+      { opacity: 0, y: 100 },
+      { opacity: 1, y: 0 }
+    )
+      .fromTo(
+        '.subheadline',
+        { opacity: 0, y: 100 },
+        { opacity: 1, y: 0 },
+        "-=0.9"
+      )
+      .fromTo(
+        '.actions',
+        { opacity: 0, y: 100 },
+        { opacity: 1, y: 0 },
+        "-=1"
+      );
+  }, []);
 
   return (
-        <div className='welcome' >
-            <h1 className='headline'>FINTEKKERS</h1>
-            <h2 className='subheadline'>David Doherty</h2>
-        </div>
-  )
-}
+    <div className="welcome">
+    
+       
+      <div className="welcome_svg">
+        <img src={"./assets-images/arrow.png"} alt="Arrow" />
+      </div>
 
-export default Welcome
+      <div className="welcome_content">
+        <h1 className="headline">
+          A comprehensive suite of APIs <br /> to help you build fintech products cost-effectively
+        </h1>
+
+        <div className="actions">
+          <button className="action_start">START BUILDING</button>
+          <button className="action_docs">VIEW DOCS</button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Welcome;

@@ -1,0 +1,49 @@
+@import "../../App.scss";
+
+
+.Headcount_container{
+    grid-row: 11/11;
+    grid-column: 1/-1;
+     width: 85vw;
+    height: max-content;
+     margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(10,auto);
+    justify-content: start;
+    align-items: start;
+
+
+
+
+    div:nth-child(n){
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    padding: .5em;
+
+
+    div{
+    border: solid 1px var(--bg-color-light);
+    display: flex ;
+      
+    &:nth-child(1){
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+    }
+    &:nth-child(3){
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+    }
+    
+    }
+}
+
+.headcount_title_text{
+    font-weight: bold;
+}
+
+.headcount_risk2{
+    border: solid 1px orange;
+    
+}

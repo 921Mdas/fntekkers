@@ -1,0 +1,137 @@
+@import "../../App.scss";
+
+.page_one {
+  color: var(--text-color);
+  grid-template-columns: 1fr 1fr;
+  padding: 1em;
+  @extend .pages_reset;  
+  // grid-row: 3/3;
+  // border: solid 1px blue;
+
+}
+
+.problem_headline, .why_title {
+  text-transform: uppercase;
+}
+
+.problem_list {
+  display: grid;
+  gap: 1em;
+  grid-template-columns: 1fr 1fr;
+  
+}
+
+.problem_list_group_one, .problem_list_group_two {
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 1em;
+  text-align: center;
+}
+
+.problem_list_group_one {
+  background-color: var(--bg-color-light);
+  border-radius: 10px;
+}
+
+.problem_list_group_two {
+  border-radius: 10px;
+  border: solid 1px var(--bg-color-light);
+}
+
+.problem_list_one, .problem_list_two {
+  @include flex(column, start, center, 1em);
+  color: var(--text-color);
+}
+
+
+.problem_statement {
+
+  .problem_statement_content {
+    @include flex(column, center, center, 1em);
+    line-height: 2em;
+
+    li {
+      list-style-type: none;
+      padding: 1em;
+    }
+  }
+}
+
+.svg {
+  animation: float 3s ease-in-out infinite;
+  font-size: 10rem;
+  font-weight: bold;
+  text-align: center;
+  margin-top: .5em;
+  opacity: 0;
+}
+
+.whyfintekkers {
+  @include flex(column, start, center, 1em);
+  border-radius: 10px;
+  .why_title {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 1em;
+
+  }
+}
+
+.why_list_one {
+  list-style-type: none;
+  background-color: var(--dark-highlight-color);
+  padding: 1em;
+  width: max-content;
+  font-weight: bold;
+  border-radius: 10px;
+  
+
+  span {
+    font-size: 5em;
+  }
+}
+.why_list_container{
+    width: 100%;
+    text-align: center;
+    @include flex(column, center, center, 1em);
+
+    
+}
+.why_solution{
+    border: solid 1px var(--dark-highlight-color);
+    padding:1em;
+    text-align: center;
+    border-radius: 10px;
+}
+
+
+
+// Media queries
+@media screen and (max-width: 390px) {
+  .page_one {
+    grid-template-columns: 1fr;
+    width: 100%;
+    height: max-content;
+  }
+
+  .problem_statement{
+    margin-bottom: 2em;
+  }
+
+   .problem_list{
+       display: grid;
+       grid-template-columns: 1fr;
+      
+    }
+
+   .problem_headline, .problem_subheadline{
+    text-align: center
+   }
+
+  .whyfintekkers {
+    @include flex(column, center, center, 1em);
+
+  }
+}
+
+

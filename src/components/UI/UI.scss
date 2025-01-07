@@ -31,13 +31,10 @@
 
 // UI components
 .UI{
-  position: absolute;
-  top: 0;
+  position: fixed;
   width: 100vw;
-  left: -50vw;
-  top: -50vh;
   display: flex;
-  justify-content: end;
+  justify-content: start;
   padding: 1em;
 }
 
@@ -57,7 +54,7 @@ input[type="checkbox"] {
 .toggle-label {
   width: 50px;
   height: 26px;
-  background-color: #1b6f85;
+  background-color: black;
   border-radius: 50px;
   display: flex;
   align-items: center;
@@ -80,15 +77,15 @@ input[type="checkbox"] {
 
 // Toggle on styling
 input[type="checkbox"]:checked + .toggle-label {
-  background-color: #258ea8;
+  background-color: #ffffff;
 }
 
 input[type="checkbox"]:checked + .toggle-label .toggle-ball {
   transform: translateX(24px);
-  background-color: #53e3a6;
+  background-color: #000000;
 }
 
 // Glow effect on hover
 .toggle-label:hover {
-  box-shadow: 0 0 8px rgba(37, 142, 168, 0.6);
+  box-shadow: 0 0 8px rgba(220, 231, 234, 0.6);
 }

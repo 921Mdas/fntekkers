@@ -1,11 +1,9 @@
 import { create } from "zustand";
 import { gsap } from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger);
 
 const useStore = create((set) => ({
- tl:null,
+iconSize:30
 }));
 
 export default useStore;
