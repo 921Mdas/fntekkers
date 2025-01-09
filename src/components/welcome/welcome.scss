@@ -31,6 +31,49 @@
   filter: invert(1);
 }
 
+
+.actions a{
+  text-decoration: none;
+  color: white;
+}
+
+.actions a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px; /* Adjust as needed */
+  display: inline-block;
+  position: relative; /* Needed for pseudo-elements */
+  transition: all 0.5s ease-in-out; /* Smooth transition */
+}
+
+/* Hover effect */
+.actions a:hover {
+  color: #02afaa; /* Change to a beautiful accent color */
+  transform: scale(1.1); /* Slightly enlarge the link */
+}
+
+/* Adding an underline effect on hover */
+
+.actions a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px; /* Adjust based on your design */
+  width: 100%;
+  height: 2px; /* Thickness of the line */
+  background: #02afaa; /* Match hover color or choose a new one */
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s ease-in-out;
+}
+
+.actions a:hover::after {
+  transform: scaleX(1);
+}
+.action_start:hover{
+background-color:#ffffff ;
+}
+
 .headline {
   font-weight: bold;
   color: var(--text-color);

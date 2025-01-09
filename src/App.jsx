@@ -13,13 +13,14 @@ const App = () => {
 
   return (
     <div className='project_container'>
-              {/* <Nav /> */}
               <UI />
               <Welcome />
               <AssetManager />
               <AMRoutine />
               <CostRevenue />
               <Services />
+              {/* <Nav />  */}
+
     </div>
   );
 };

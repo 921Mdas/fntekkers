@@ -5,7 +5,9 @@
     border: solid 1px red;
     height: 8vh;
     width: 100vw;
-    position: absolute;
+    grid-column: 1/-1;
+    grid-row: 10/10;
+    // position: absolute;
     padding: 1em;
     top: 0;
     left: 0;
