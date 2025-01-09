@@ -62,10 +62,8 @@ html, body, #root, .app-container {
   padding: 0;
   overflow-x: hidden;
   font-family: var(--poppins);
-  background-image: url("./assets-images/589.jpg");
-  background-attachment: fixed;
-  background-position: center center;
-  background-size: cover;
+  background-color: #132c35;
+
 }
 
 @mixin flex($fd, $jc, $ai, $gap) {
@@ -90,9 +88,9 @@ html, body, #root, .app-container {
   height: max-content;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(11, 50vh);
+  grid-template-rows: repeat(9, 50vh);
   gap: 1em;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .pages_reset {
@@ -124,7 +122,7 @@ html, body, #root, .app-container {
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: auto;
   gap: 1em;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 }
 
@@ -136,7 +134,7 @@ html, body, #root, .app-container {
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: auto;
   gap: 1em;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 }
 
@@ -148,7 +146,7 @@ html, body, #root, .app-container {
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: auto;
   gap: 1em;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 }
 
@@ -162,7 +160,11 @@ html, body, #root, .app-container {
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: auto;
   gap: 1em;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
+}
+
+.scroll-element {
+    will-change: transform;
 }

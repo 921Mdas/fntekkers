@@ -44,8 +44,8 @@ const Welcome = () => {
         </h1>
 
         <div className="actions">
-          <button className="action_start">START BUILDING</button>
-          <button className="action_docs">VIEW DOCS</button>
+          <button className="action_start"><a href="http://https://www.fintekkers.org/login" target="_blank" rel="noopener noreferrer">START BUILDING</a></button>
+          <button className="action_docs"><a href='https://github.com/FinTekkers/ledger-models' target='_blank'>VIEW DOCS</a></button>
         </div>
       </div>
     </div>
