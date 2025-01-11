@@ -551,7 +551,7 @@ color: var(--text-color);
 
 .services_notes_stats {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     justify-content: center;
     align-items: center;
     justify-items: center;
@@ -560,7 +560,6 @@ color: var(--text-color);
     border-top: solid 1px var(--border-light);
     border-bottom: solid 1px var(--border-light);
     padding-top: 2em;
-    margin-top: 35em;
 }
 
 .Services_note p span {
@@ -828,6 +827,10 @@ color: var(--text-color);
     width: 100%;
 }
 
+.Services{
+    height: 80vh;
+}
+
 .asset_manager {
     grid-column: 1 / -1;
     width: 100%;
@@ -886,7 +889,6 @@ color: var(--text-color);
     border-top: solid 1px var(--border-light);
     border-bottom: solid 1px var(--border-light);
     padding-top: 2em;
-    margin-top: 35em;
 }
 
 .Services_note p span {

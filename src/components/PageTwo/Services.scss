@@ -3,8 +3,10 @@
 .Services {
   color: var(--text-color);
   @extend .pages_reset;
-  grid-row: 8/8;
-  margin-top: 2em;
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling for iOS */
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  overflow-y: hidden;   /* Allow vertical scroll */
+  height: max-content;
 }
 
 .Services_headline {
@@ -145,6 +147,7 @@
   left: -30%;
   top: 10%;
   opacity: 30%;
+  display: none;
 }
 
 .Services_stats_item0 {
@@ -186,14 +189,104 @@
   top: 30%;
 }
 
-  
-// extra small devices
-@media screen and (max-width:480px) {
+/* Extra small devices */
+@media screen and (max-width: 480px) {
   .Services {
     grid-row: 10/10;
     width: 100%;
     padding: 1em;
     margin-top: 0;
+  }
+
+  .Services_stat_items {
+  line-height: 2em;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5em;
+  justify-content: center;
+  justify-items: center;
+  position: relative;
+}
+
+
+
+  .icon_container {
+    position: absolute;
+    left: -30%;
+    top: 10%;
+    opacity: 30%;
+    display: none;
+  }
+
+  .Service_blocks_container {
+    grid-template-columns: 1fr;
+    gap: 1em;
+  }
+
+  .blocks {
+    grid-template-columns: 1fr;
+  }
+
+ .Services_stats img {
+        width: 90vw;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+  .Services_note {
+    width: 90%; /* Full width for notes */
+  }
+
+  .services_notes_stats {
+    grid-template-columns: 1fr;
+    padding-top: 1em;
+    height: 80vh;
+  }
+
+
+
+
+  .Services_stats_item {
+    justify-content: center;
+
+    .dot {
+      width: 5px;
+      height: 5px;
+    }
+
+    .number {
+      font-size: 1rem;
+    }
+  }
+
+  .Services_headline {
+    font-size: 1.5rem;
+    padding: 0.5em;
+  }
+
+
+  .Services_stats h3 {
+    text-align: center;
+    font-size: 1rem;
+  }
+
+  .arrow_svg {
+    display: none;
+  }
+
+  .Services_state_calc {
+    display: none;
+  }
+}
+
+/* Mobile */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .Services {
+    width: 100vw;
+    padding: 1em;
+    margin-top: 0;
+    
   }
 
   .icon_container {
@@ -202,173 +295,88 @@
     top: 10%;
     opacity: 30%;
     display: none;
-}
-
-  .Service_blocks_container {
-    grid-template-columns: 1fr; /* Single column layout */
-    grid-template-rows: auto;
-    gap: 1em;
   }
 
-  .blocks {
-    grid-template-columns: 1fr; /* Single column layout */
-  }
-
-  .Services_stats img {
-    width: 90vw; /* Reduce image size for smaller screens */
-  }
-
-  .Services_note {
-    width: 90%; /* Full width for notes */
-  }
-
-  .services_notes_stats {
-    grid-template-columns: 1fr; /* Single column for stats */
-    padding-top: 1em;
-  }
-
-  .Services_stats_item {
-    justify-content: center;
-
-    .dot{
-        width: 5px;
-       height:5px;
-    }
-    .number{
-        font-size: 1rem;
-    }
-  }
-
-  .Services_headline {
-    font-size: 1.5rem; /* Adjust headline size */
-    padding: 0.5em;
-  }
-
-  .Services_stats_item0,   .Services_stats_item1,   .Services_stats_item2,  .Services_stats_item3,   .Services_stats_item4{
-    position: absolute;
-  }
-
-   .Services_stats_item1{
-    top: 10%;
-    left: 30%;
-   }
-   .Services_stats_item2{
-    top: 20%;
-    left: 10%;
-   }
-   .Services_stats_item3{
-    top: 30%;
-    left: 25%;
-   }
-
-
-   .Services_note p span{
-    left: 25%;
-   }
-
-   .Services_stats h3{
-    text-align: center;
+  .Services_note p span {
     font-size: 1rem;
-   }
-
-.arrow_svg{
-    display: none;
-}
-
-.Services_state_calc{
-    display: none;
-}
-}
-
-// mobile
-@media screen and (min-width: 481px) and (max-width: 768px){
-     .Services {
-       grid-row: 10 / 10;
-        width: 100%;
-        padding: 1em;
-        margin-top: 0;
-    }
-
-   .icon_container {
-    position: absolute;
-    left: -30%;
-    top: 10%;
-    opacity: 30%;
-    display: none;
-}
-
-    
-     .Services_note p span {
-    font-size:  1rem;
     color: var(--numbers-color);
     position: relative;
     font-weight: bold;
-}
+  }
 
-
-.arrow_svg{
+  .arrow_svg {
     display: none;
-}
+  }
 
   .Services_stats_item {
     justify-content: center;
 
-    .dot{
-        width: 5px;
-       height:5px;
+    .dot {
+      width: 5px;
+      height: 5px;
     }
-    .number{
-        font-size: 1rem;
+
+    .number {
+      font-size: 1rem;
     }
   }
 
-  .Services_stats_item0{
-   position: relative;
-  justify-self: flex-start;
-
-  }
-  .Services_stats_item1{
-   position: relative;
-   left: 0;
-   top: 0;
-   justify-self: center;
-
-  }
-  .Services_stats_item2{
-   position: relative;
-      left: 0;
-   top: 0;
-
-  }
-  .Services_stats_item3{
-   position: relative;
-      left: 0;
-   top: 0;
-  }
-  .Services_stats_item4{
-   position: relative;
-      left: 0;
-   top: 0;
+  .Services_stats_item0 {
+    position: relative;
+    justify-self: flex-start;
   }
 
-  .services_notes_stats p{
+  .Services_stats_item1 {
+    position: relative;
+    left: 0;
+    top: 0;
+    justify-self: center;
+  }
+
+  .Services_stats_item2 {
+    position: relative;
+    left: 0;
+    top: 0;
+  }
+
+  .Services_stats_item3 {
+    position: relative;
+    left: 0;
+    top: 0;
+  }
+
+  .Services_stats_item4 {
+    position: relative;
+    left: 0;
+    top: 0;
+  }
+
+  .services_notes_stats p {
     text-align: center;
   }
-    .Services_note {
+
+  .Services_note {
     width: 100%;
     background-color: var(--primary-color);
     padding: 0;
     border-radius: 10px;
-}
-    .Services_stats img {
-        width: 50vw;
-    }
-.icon_container{
-  display: none;
-}
-    .services_notes_stats {
-    display: grid
-;
+  
+  }
+
+  .Services_note p{
+    text-align: center;
+  }
+
+  .Services_stats img {
+    width: 50vw;
+  }
+
+  .icon_container {
+    display: none;
+  }
+
+  .services_notes_stats {
+    display: grid;
     grid-template-columns: 1fr;
     justify-content: center;
     align-items: center;
@@ -378,31 +386,34 @@
     border-top: solid 1px var(--border-light);
     border-bottom: solid 1px var(--border-light);
     padding-top: 2em;
+  }
+
+  .Services_stats h3 {
+    padding: 1em 0;
+  }
 }
 
-.Services_stats h3{
-  padding: 1em 0;
-}
-}
-
-// tablets
-@media screen and (min-width: 769px) and (max-width: 1024px){
- 
- .services_notes_stats p{
+/* Tablets */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .services_notes_stats p {
     text-align: center;
   }
 
-  .Services_stats img{
+  .Services{
+    width: 100vw;
+
+  }
+
+  .Services_stats img {
     width: 50vw;
   }
 
-  .dot{
+  .dot {
     width: 5px;
     height: 5px;
   }
 
-  .number span{
+  .number span {
     font-size: 1rem;
   }
 }
-

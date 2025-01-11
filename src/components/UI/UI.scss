@@ -1,36 +1,31 @@
 @import "../../App.scss";
 
-/* Customize the scrollbar */
+/* Scrollbar customization for iOS and other browsers */
 ::-webkit-scrollbar {
-  width: 6px; /* Width of the scrollbar */
-  height: 6px; /* Height of the scrollbar (for horizontal scrollbars) */
+  width: 6px;
+  height: 6px;
 }
 
-/* Track (background) of the scrollbar */
 ::-webkit-scrollbar-track {
-  background: #ffffff; /* Color of the scrollbar track */
-  border-radius: 10px; /* Rounded corners */
+  background: #ffffff;
+  border-radius: 10px;
 }
 
-/* Handle (the draggable part) of the scrollbar */
 ::-webkit-scrollbar-thumb {
-  background: rgb(125, 124, 124); /* Color of the handle */
-  border-radius: 10px; /* Rounded corners */
+  background: rgb(125, 124, 124);
+  border-radius: 10px;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555; /* Color when hovering over the handle */
+  background: #555;
 }
 
-/* Handle when active (dragging) */
 ::-webkit-scrollbar-thumb:active {
-  background: #333; /* Color when actively dragging */
+  background: #333;
 }
 
-
-// UI components
-.UI{
+/* UI components */
+.UI {
   position: fixed;
   width: 100vw;
   display: flex;
@@ -38,9 +33,10 @@
   padding: 1em;
   height: 8vh;
   z-index: 1000;
+  pointer-events: none; /* Prevent blocking scrolling */
 }
 
-.UI h3 a{
+.UI h3 a {
   text-decoration: none;
   font-weight: bold;
   color: white;
@@ -48,22 +44,18 @@
   top: 50%;
   left: 5%;
   transform: translateY(-50%);
-  
 }
 
-  //  dark mode
-  // Container styling for positioning
+/* Dark mode toggle styles */
 .toggle-container {
   display: inline-block;
   position: relative;
 }
 
-// Hidden checkbox input
 input[type="checkbox"] {
   display: none;
 }
 
-// Toggle switch base styling
 .toggle-label {
   width: 50px;
   height: 26px;
@@ -76,7 +68,6 @@ input[type="checkbox"] {
   transition: background-color 0.3s ease;
 }
 
-// Toggle ball styling
 .toggle-ball {
   position: absolute;
   top: 3px;
@@ -88,7 +79,6 @@ input[type="checkbox"] {
   transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-// Toggle on styling
 input[type="checkbox"]:checked + .toggle-label {
   background-color: #ffffff;
 }
@@ -98,19 +88,20 @@ input[type="checkbox"]:checked + .toggle-label .toggle-ball {
   background-color: #000000;
 }
 
-// Glow effect on hover
 .toggle-label:hover {
   box-shadow: 0 0 8px rgba(220, 231, 234, 0.6);
 }
 
-
-
-// UI
-
+/* Hide UI on smaller screens */
 @media screen and (max-width: 1199px) {
-
-  .UI{
+  .UI {
     display: none;
   }
+}
 
+/* iOS Specific Fixes */
+body, .project_container {
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  overflow-y: auto;   /* Ensure vertical scrolling */
+  -webkit-overflow-scrolling: to
 }
