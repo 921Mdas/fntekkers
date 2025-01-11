@@ -271,6 +271,10 @@
     font-size: 1rem;
   }
 
+   .Services_stats{
+    @include flex(column, center, center, 2em)
+   }
+
   .arrow_svg {
     display: none;
   }
