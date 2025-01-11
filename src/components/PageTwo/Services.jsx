@@ -74,11 +74,6 @@ useScrollAnimation({
             to: { opacity: 1, y: 0, duration: 1 } 
         },
         { 
-            selector: ".Services_note", 
-            from: { opacity: 0, y: 200 }, 
-            to: { opacity: 1, y: 0, duration: 2 } 
-        },
-        { 
             selector: ".Services_stat_items", 
             from: { opacity: 0, y: 200 }, 
             to: { opacity: 1, y: 0, duration: 2 } 
@@ -121,7 +116,7 @@ useScrollAnimation({
             <div className="services_notes_stats">
             <div className="Services_note">
                 <span className='icon_container'><FaGripLinesVertical size={iconSize + 100}/></span>
-                <p>Industry wastefully rebuilds these systems many times despite having 99% <br/> the same requirements</p>
+                <p>Industry wastefully rebuilds these systems many times despite having 99% the same requirements</p>
             </div>
             <div className="arrow_svg">
                 <HiMiniArrowTrendingUp size={iconSize + 60} />
@@ -140,15 +135,8 @@ useScrollAnimation({
                         </div>
             )
                         )}
-
-                        <div className="Services_state_calculation">
-                            x $1MM (avg) = $24B+ of annual low-hanging SaaS revenue
-                        </div>
                </div>
 
-                <div className="Services_state_calc">
-                            x $1MM (avg) = $24B+ of annual low-hanging SaaS revenue
-                </div>
 
             </div>
 

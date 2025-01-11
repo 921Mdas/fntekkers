@@ -31,15 +31,12 @@ h6 {
   --border-light: #e3e6e65d;
   --numbers-color: #02afaa;
   --highlight-color: #db5602;
-  --highlight-yellow-color:rgba(255, 204, 0, 0.848);
+  --highlight-yellow-color: rgba(255, 204, 0, 0.848);
   --dark-highlight-color: #fc6459;
   --dark-red-color: #870b02;
-
-
- --grey-color:rgb(165, 164, 164);
- --darkgreen-color:#027a76;
- --lightblue:rgb(0, 191, 255);
-
+  --grey-color: rgb(165, 164, 164);
+  --darkgreen-color: #027a76;
+  --lightblue: rgb(0, 191, 255);
   --mono-font: "Roboto Mono", monospace;
   --roboto-font: "Roboto", sans-serif;
   --helvetica: "Helvetica";
@@ -47,23 +44,24 @@ h6 {
   --Dancing: "Dancing Script", cursive;
   --pen: "Great Vibes", cursive;
   --poppins: "Poppins", sans-serif;
-
-
   --small-screens: 480px;
-  --regular-mobile-start: 481px ;
-  --regular-mobile-end: 768px ;
-  --tablets-start: 769px ;
-  --tablets-end: 1024px ;
+  --regular-mobile-start: 481px;
+  --regular-mobile-end: 768px;
+  --tablets-start: 769px;
+  --tablets-end: 1024px;
 }
 
-html, body, #root, .app-container {
+html,
+body,
+#root,
+.app-container {
   height: auto;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
   font-family: var(--poppins);
   background-color: #132c35;
-
+  touch-action: none; /* Prevent iOS default actions */
 }
 
 @mixin flex($fd, $jc, $ai, $gap) {
@@ -88,7 +86,7 @@ html, body, #root, .app-container {
   height: max-content;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(9, 50vh);
+  grid-template-rows: repeat(6, minmax(50vh, auto)); /* Flexible row height */
   gap: 1em;
   overflow-y: auto;
 }
@@ -110,61 +108,22 @@ html, body, #root, .app-container {
   height: max-content;
 }
 
-
-
 // Mobile responsive styles
-@media screen and (max-width: 390px) {
-  
+@media screen and (max-width: 768px) {
   .project_container {
-  width: 100vw;
-  height: max-content;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: auto;
-  gap: 1em;
-  overflow-y: auto;
-}
+    grid-template-columns: repeat(1, 1fr); /* 1 column layout for small screens */
+    grid-template-rows: auto; /* Adjust rows for smaller screen sizes */
+  }
 }
 
-@media screen and (min-width: 391px) and (max-width: 700px){
+
+
+@media screen and (min-width: 769px) and (max-width: 1200px) {
   .project_container {
-  width: 100vw;
-  height: max-content;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: auto;
-  gap: 1em;
-  overflow-y: auto;
-}
-}
-
-@media screen and (min-width: 701px) and (max-width: 899px){
-  .project_container {
-  width: 100vw;
-  height: max-content;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: auto;
-  gap: 1em;
-  overflow-y: auto;
-}
-}
-
-
-/* Target screens between 900px and 1200px */
-@media screen and (min-width: 900px) and (max-width: 1200px) {
-  .project_container {
-  width: 100vw;
-  height: max-content;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: auto;
-  gap: 1em;
-  overflow-y: auto;
-}
-
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
+  }
 }
 
 .scroll-element {
-    will-change: transform;
+  will-change: transform; /* Only when necessary for animations */
 }

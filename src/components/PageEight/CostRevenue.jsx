@@ -1,95 +1,137 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from "react";
 import "./CostRevenue.scss";
-import MyBarChart from './Chart';
+import MyBarChart from "./Chart";
 
 const CostRevenue = () => {
-
   const defaultTitles = [
-    'Asset Manager : UBS',
-    'Asset Manager : Natixis',
-    'Retirement Advisor : Nuveen',
-    'Insurance Firm : Pimco',
+    "Asset Manager : UBS",
+    "Asset Manager : Natixis",
+    "Retirement Advisor : Nuveen",
+    "Insurance Firm : Pimco",
   ];
 
-  // Start with only the first title in the defaultTitles array
   const [items, setItems] = useState(
     defaultTitles.slice(0, 1).map((title, index) => ({ id: index + 1, title }))
   );
 
-  // Set initial chart data based on the length of defaultTitles
   const initialChartData = [
-    { name: 'Others', cost: 10, maintenance: 10, amt: defaultTitles.length * 0.1 },
-    { name: 'Fintekkers',cost: 0, maintenance: 0, amt: (defaultTitles.length * 0.1) / 4 },
+    { name: "Others", cost: 10, maintenance: 10, amt: defaultTitles.length * 0.1 },
+    { name: "Fintekkers", cost: 0, maintenance: 0, amt: (defaultTitles.length * 0.1) / 4 },
   ];
 
   const [chartData, setChartData] = useState(initialChartData);
+  const scrollRef = useRef(null);
 
-  const addItem = () => {
-    setItems((prevItems) => {
-      const nextIndex = prevItems.length;
-      if (nextIndex < defaultTitles.length) {
-        return [
-          ...prevItems,
-          { id: nextIndex + 1, title: defaultTitles[nextIndex] },
-        ];
-      }
-      return prevItems; // Prevent adding more items if titles are exhausted
+  useEffect(() => {
+    const element = scrollRef.current;
+
+    const handleAddItem = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          addItemsSequentially();
+        } else {
+          debounceRemoveItem();
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(handleAddItem, {
+      root: null,
+      threshold: 0.5,
     });
-  
-    const newData =  chartData.map((data, idx)=>{
-        if(idx < 1 ){
-            data.cost += 20;
-            data.maintenance += 10;
-        }
 
-          if(idx > 0){
-            data.cost += 5;
-            data.maintenance += 2;
-        }
+    if (element) {
+      observer.observe(element);
+    }
 
-       return data
-    })
-    // Directly set the new chart data
-    setChartData(newData);
+    return () => {
+      if (element) observer.unobserve(element);
+    };
+  }, []);
+
+  const addItemsSequentially = () => {
+    if (items.length >= defaultTitles.length) return; // Limit items to the array length
+
+    let currentIndex = items.length;
+
+    const interval = setInterval(() => {
+      if (currentIndex < defaultTitles.length) {
+        addItem(currentIndex);
+        currentIndex += 1;
+      } else {
+        clearInterval(interval);
+      }
+    }, 300); // Adjust delay for smoother animation
+  };
+
+  const addItem = (index) => {
+    setItems((prevItems) => {
+      if (index < defaultTitles.length && prevItems.length < defaultTitles.length) {
+        return [...prevItems, { id: index + 1, title: defaultTitles[index] }];
+      }
+      return prevItems;
+    });
+
+    setChartData((prevChartData) =>
+      prevChartData.map((data, idx) => {
+        if (idx === 0) {
+          return {
+            ...data,
+            cost: data.cost + 20,
+            maintenance: data.maintenance + 10,
+          };
+        }
+        if (idx === 1) {
+          return {
+            ...data,
+            cost: data.cost + 5,
+            maintenance: data.maintenance + 2,
+          };
+        }
+        return data;
+      })
+    );
+  };
+
+  const debounceRemoveItem = () => {
+    setTimeout(() => {
+      removeItem();
+    }, 300); // Add delay to smooth removal
   };
 
   const removeItem = () => {
     setItems((prevItems) => {
-      // Prevent removing the last item if it's the only item
       if (prevItems.length > 1) {
-        return prevItems.slice(0, -1); // Remove the last item only if more than 1
+        return prevItems.slice(0, -1);
       }
-      return prevItems; // Keep the array as it is if it's the only item left
+      return prevItems;
     });
 
-     const newData =  chartData.map((data, idx)=>{
-        if(idx < 1 & data.cost >= 10 && data.maintenance >= 10 ){
-            data.cost -= 20;
-            data.maintenance -= 10;
+    setChartData((prevChartData) =>
+      prevChartData.map((data, idx) => {
+        if (idx === 0 && data.cost >= 10 && data.maintenance >= 10) {
+          return {
+            ...data,
+            cost: data.cost - 20,
+            maintenance: data.maintenance - 10,
+          };
         }
-
-          if(idx > 0 & data.cost > 0 && data.maintenance > 0 ){
-            data.cost -= 5;
-            data.maintenance -= 2;
+        if (idx === 1 && data.cost > 0 && data.maintenance > 0) {
+          return {
+            ...data,
+            cost: data.cost - 5,
+            maintenance: data.maintenance - 2,
+          };
         }
-
-       return data
-    })
-    // Directly set the new chart data
-    setChartData(newData);
+        return data;
+      })
+    );
   };
 
-
-
   return (
-    <div className="cost_revenue_container">
+    <div className="cost_revenue_container" ref={scrollRef}>
       <div className="cost_revenue">
         <div className="cost_rev_title">The Cost of Repeating the above Process</div>
-
-        <div className="Buttons_actions">
-          <button onClick={removeItem}>-</button>
-          <button onClick={addItem}>+</button>
-        </div>
 
         <div className="cost_rev_subcontainer">
           <div className="cost_rev_graphs">

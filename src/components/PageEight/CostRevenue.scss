@@ -2,19 +2,19 @@
 
 .cost_revenue_container {
     color: white;
-    @extend .pages_reset; 
-    width: 100vw;
+    @extend .pages_reset;
+    width: 100%; /* Replace 100vw to avoid horizontal scroll on iOS */
     position: relative;
     height: max-content;
     align-items: start;
     display: grid;
-    grid-row: 6 / 6;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling for iOS */
+    padding: env(safe-area-inset-left) env(safe-area-inset-right);
 }
 
 .cost_revenue {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 10vh 1fr 20vh;
 }
 
 .Buttons_actions {
@@ -26,39 +26,38 @@
         width: 8vw;
         font-weight: bold;
         background: var(--grey-color);
+        touch-action: manipulation; /* Improves click response on iOS */
     }
 }
 
-.legends{
-        .cost{
-            font-weight: bold;
-            width: max-content;
-            display: flex;
-            justify-content: space-between;
-            flex-direction: column;
-            gap: 1em;
+.legends {
+    .cost {
+        font-weight: bold;
+        width: max-content;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        gap: 1em;
 
-          p:nth-child(1){
+        p:nth-child(1),
+        p:nth-child(2) {
             color: white;
             background-color: #920800;
             padding: 0 1em;
             border-radius: 10px;
-
-          }
-          p:nth-child(2){
-            color: white;
-            background-color: #FF9800;;
-            padding: 0 1em;
-            border-radius: 10px;
-
-          }
         }
+
+        p:nth-child(2) {
+            background-color: #FF9800;
+        }
+    }
 }
 
 .cost_rev_title {
     font-size: 2rem;
     font-weight: bold;
     @include flex(row, center, center, 0);
+    padding: 1em;
 }
 
 .cost_rev_graphs {
@@ -69,6 +68,7 @@
     display: grid;
     grid-template-columns: 20vw 60vw;
     padding: 1em;
+    gap: 1em;
 }
 
 .cost_rev_item_title {
@@ -84,7 +84,7 @@
     gap: 1em;
     justify-content: center;
 
-    div:nth-child(n) {
+    div {
         border: solid 1px var(--text-color);
         text-align: center;
         @include flex(row, center, center, 0);
@@ -101,27 +101,28 @@
     margin-top: 1em;
 }
 
-// Media query for mobile responsiveness
+/* Media Query Adjustments */
 @media screen and (max-width: 390px) {
-
-    .cost_revenue_container{
-         grid-row: 8/9;
-         width: 90vw;
+    .cost_revenue_container {
+        grid-row: 8 / 9;
+        width: 90%;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
     }
+
     .cost_revenue {
-        grid-template-rows: auto; /* Adjust rows for better stacking */
+        grid-template-rows: auto;
         gap: 1em;
-        
     }
 
     .Buttons_actions button {
-        width: 80%; /* Make buttons full width on smaller screens */
+        width: 80%;
         background-color: var(--text-color);
-        color:var(--bg-color);
+        color: var(--bg-color);
     }
 
     .cost_rev_title {
-        font-size: 1.5rem; /* Adjust title size */
+        font-size: 1.5rem;
         text-align: center;
     }
 
@@ -131,215 +132,50 @@
         gap: 1em;
         border: solid 1px grey;
         border-radius: 10px;
-
     }
-
 
     .cost_rev_item_elements {
-        grid-template-columns: repeat(auto-fit, minmax(10vw, 1fr)); /* Responsive columns */
-        grid-template-rows: auto; /* Let rows adjust dynamically */
-        gap: .4em;
+        grid-template-columns: repeat(auto-fit, minmax(10vw, 1fr));
+        grid-template-rows: auto;
+        gap: 0.4em;
 
-
-        div:nth-child(n){
+        div {
             padding: 0 1em;
-            font-size: .8rem;
-            display: grid;  
+            font-size: 0.8rem;
+            display: grid;
         }
 
-         div:nth-child(1){
-          background-color: var(--grey-color);
- 
+        div:nth-child(1) {
+            background-color: var(--grey-color);
         }
-         div:nth-child(2){
-            background-color: var(--highlight-yellow-color); 
-
-        
+        div:nth-child(2) {
+            background-color: var(--highlight-yellow-color);
         }
-         div:nth-child(3){
-            background-color: var(--darkgreen-color); 
+        div:nth-child(3) {
+            background-color: var(--darkgreen-color);
         }
-         div:nth-child(4){
-                      background-color: var( --lightblue); 
-
+        div:nth-child(4) {
+            background-color: var(--lightblue);
         }
-         div:nth-child(5){
-                      background-color: var( --dark-red-color); 
-
+        div:nth-child(5) {
+            background-color: var(--dark-red-color);
         }
     }
 
-
-    .legends{
-        .cost{
-          p:nth-child(1){
-            color: white;
-          }
-          p:nth-child(2){
-            color: white;
-          }
-        }
+    .legends .cost p:nth-child(1),
+    .legends .cost p:nth-child(2) {
+        color: white;
     }
 }
 
 
-@media screen and (min-width: 701px) and (max-width: 899px){
-  .cost_revenue_container{
-         grid-row: 8/9;
-         width: 90vw;
-    }
-    .cost_revenue {
-        grid-template-rows: auto; /* Adjust rows for better stacking */
-        gap: 1em;
-        
-    }
 
-    .Buttons_actions button {
-        width: 80%; /* Make buttons full width on smaller screens */
-        background-color: var(--text-color);
-        color:var(--bg-color);
-    }
-
-    .cost_rev_title {
-        font-size: 1.5rem; /* Adjust title size */
-        text-align: center;
-    }
-
-    .cost_rev_item {
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr;
-        gap: 1em;
-        border: solid 1px grey;
-        border-radius: 10px;
-
-    }
-
-
-    .cost_rev_item_elements {
-        grid-template-columns: repeat(auto-fit, minmax(10vw, 1fr)); /* Responsive columns */
-        grid-template-rows: auto; /* Let rows adjust dynamically */
-        gap: .4em;
-
-
-        div:nth-child(n){
-            padding: 0 1em;
-            font-size: .8rem;
-            display: grid;  
-        }
-
-         div:nth-child(1){
-          background-color: var(--grey-color);
- 
-        }
-         div:nth-child(2){
-            background-color: var(--highlight-yellow-color); 
-
-        
-        }
-         div:nth-child(3){
-            background-color: var(--darkgreen-color); 
-        }
-         div:nth-child(4){
-                      background-color: var( --lightblue); 
-
-        }
-         div:nth-child(5){
-                      background-color: var( --dark-red-color); 
-
-        }
-    }
-
-
-    .legends{
-        .cost{
-          p:nth-child(1){
-            color: white;
-          }
-          p:nth-child(2){
-            color: white;
-          }
-        }
-    }
-
+@media screen and (min-width: 1000px) and (max-width: 1200px) {
+  /* Add your styles for 1000px to 1200px range */
+.cost_rev_item {
+    display: grid;
+    grid-template-columns: 25vw 65vw;
+    padding: 1em;
+    gap: 1em;
 }
-
-@media screen and (min-width: 391px) and (max-width: 700px){
-
-  .cost_revenue_container{
-         grid-row: 8/9;
-         width: 90vw;
-    }
-    .cost_revenue {
-        grid-template-rows: auto; /* Adjust rows for better stacking */
-        gap: 1em;
-        
-    }
-
-    .Buttons_actions button {
-        width: 80%; /* Make buttons full width on smaller screens */
-        background-color: var(--text-color);
-        color:var(--bg-color);
-    }
-
-    .cost_rev_title {
-        font-size: 1.5rem; /* Adjust title size */
-        text-align: center;
-    }
-
-    .cost_rev_item {
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr;
-        gap: 1em;
-        border: solid 1px grey;
-        border-radius: 10px;
-
-    }
-
-
-    .cost_rev_item_elements {
-        grid-template-columns: repeat(auto-fit, minmax(10vw, 1fr)); /* Responsive columns */
-        grid-template-rows: auto; /* Let rows adjust dynamically */
-        gap: .4em;
-
-
-        div:nth-child(n){
-            padding: 0 1em;
-            font-size: .8rem;
-            display: grid;  
-        }
-
-         div:nth-child(1){
-          background-color: var(--grey-color);
- 
-        }
-         div:nth-child(2){
-            background-color: var(--highlight-yellow-color); 
-
-        
-        }
-         div:nth-child(3){
-            background-color: var(--darkgreen-color); 
-        }
-         div:nth-child(4){
-                      background-color: var( --lightblue); 
-
-        }
-         div:nth-child(5){
-                      background-color: var( --dark-red-color); 
-
-        }
-    }
-
-
-    .legends{
-        .cost{
-          p:nth-child(1){
-            color: white;
-          }
-          p:nth-child(2){
-            color: white;
-          }
-        }
-    }
-
 }
