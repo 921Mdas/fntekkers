@@ -1,6 +1,7 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useState, useRef } from "react";
 import "./CostRevenue.scss";
 import MyBarChart from "./Chart";
+import { useScrollAnimation } from "../../Helper"; // Assuming the hook is imported
 
 const CostRevenue = () => {
   const defaultTitles = [
@@ -10,123 +11,28 @@ const CostRevenue = () => {
     "Insurance Firm : Pimco",
   ];
 
-  const [items, setItems] = useState(
-    defaultTitles.slice(0, 1).map((title, index) => ({ id: index + 1, title }))
-  );
 
-  const initialChartData = [
-    { name: "Others", cost: 10, maintenance: 10, amt: defaultTitles.length * 0.1 },
-    { name: "Fintekkers", cost: 0, maintenance: 0, amt: (defaultTitles.length * 0.1) / 4 },
-  ];
 
-  const [chartData, setChartData] = useState(initialChartData);
+
   const scrollRef = useRef(null);
 
-  useEffect(() => {
-    const element = scrollRef.current;
+  // Dynamically create the animations for each cost_rev_item
+  const animations = defaultTitles.map((item, idx) => ({
+    selector: `.cost_rev_item_${idx}`,
+    from: { opacity: 0, y: 100 },
+    to: { opacity: 1, y: 0 }
+  }));
 
-    const handleAddItem = (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          addItemsSequentially();
-        } else {
-          debounceRemoveItem();
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(handleAddItem, {
-      root: null,
-      threshold: 0.5,
-    });
-
-    if (element) {
-      observer.observe(element);
-    }
-
-    return () => {
-      if (element) observer.unobserve(element);
-    };
-  }, []);
-
-  const addItemsSequentially = () => {
-    if (items.length >= defaultTitles.length) return; // Limit items to the array length
-
-    let currentIndex = items.length;
-
-    const interval = setInterval(() => {
-      if (currentIndex < defaultTitles.length) {
-        addItem(currentIndex);
-        currentIndex += 1;
-      } else {
-        clearInterval(interval);
-      }
-    }, 300); // Adjust delay for smoother animation
-  };
-
-  const addItem = (index) => {
-    setItems((prevItems) => {
-      if (index < defaultTitles.length && prevItems.length < defaultTitles.length) {
-        return [...prevItems, { id: index + 1, title: defaultTitles[index] }];
-      }
-      return prevItems;
-    });
-
-    setChartData((prevChartData) =>
-      prevChartData.map((data, idx) => {
-        if (idx === 0) {
-          return {
-            ...data,
-            cost: data.cost + 20,
-            maintenance: data.maintenance + 10,
-          };
-        }
-        if (idx === 1) {
-          return {
-            ...data,
-            cost: data.cost + 5,
-            maintenance: data.maintenance + 2,
-          };
-        }
-        return data;
-      })
-    );
-  };
-
-  const debounceRemoveItem = () => {
-    setTimeout(() => {
-      removeItem();
-    }, 300); // Add delay to smooth removal
-  };
-
-  const removeItem = () => {
-    setItems((prevItems) => {
-      if (prevItems.length > 1) {
-        return prevItems.slice(0, -1);
-      }
-      return prevItems;
-    });
-
-    setChartData((prevChartData) =>
-      prevChartData.map((data, idx) => {
-        if (idx === 0 && data.cost >= 10 && data.maintenance >= 10) {
-          return {
-            ...data,
-            cost: data.cost - 20,
-            maintenance: data.maintenance - 10,
-          };
-        }
-        if (idx === 1 && data.cost > 0 && data.maintenance > 0) {
-          return {
-            ...data,
-            cost: data.cost - 5,
-            maintenance: data.maintenance - 2,
-          };
-        }
-        return data;
-      })
-    );
-  };
+  // Use the custom hook for scroll animation
+  useScrollAnimation({
+    trigger: ".cost_revenue_container",
+    start: "top 70%",
+    end: "+=650",
+    markers: false,
+    scrub: true,
+    toggleActions: "restart none none none",
+    animations: animations, // Pass the dynamically created animations
+  });
 
   return (
     <div className="cost_revenue_container" ref={scrollRef}>
@@ -135,9 +41,9 @@ const CostRevenue = () => {
 
         <div className="cost_rev_subcontainer">
           <div className="cost_rev_graphs">
-            {items.map((item) => (
-              <div key={item.id} className="cost_rev_item">
-                <div className="cost_rev_item_title">{item.title}</div>
+            {defaultTitles.map((item, idx) => (
+              <div key={idx} className={`cost_rev_item cost_rev_item_${idx}`}>
+                <div className="cost_rev_item_title">{item}</div>
                 <div className="cost_rev_item_elements">
                   <div>Security Model</div>
                   <div>Market Data</div>
@@ -149,7 +55,7 @@ const CostRevenue = () => {
             ))}
           </div>
           <div className="cost_bar_chart">
-            <MyBarChart data={chartData} />
+            <MyBarChart />
           </div>
         </div>
       </div>

@@ -10,7 +10,6 @@ const Headcount = () => {
     start: "-50% 100%",
     end: "+=350",
     scrub: true,
-    markers:true,
     toggleActions: "restart none none none",
     animations: [
       { selector: ".Headcount_container", from: { opacity: 0, y: 200 }, to: { opacity: 1, y: 0 } },

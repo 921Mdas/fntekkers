@@ -1,12 +1,13 @@
 @import "../../App.scss";
 
 .Services {
-  color: var(--text-color);
   @extend .pages_reset;
+  color: var(--text-color);
   -webkit-overflow-scrolling: touch; /* Smooth scrolling for iOS */
   overflow-x: hidden; /* Prevent horizontal scroll */
   overflow-y: hidden;   /* Allow vertical scroll */
   height: max-content;
+  width: 100%;
 }
 
 .Services_headline {
@@ -69,8 +70,23 @@
   position: relative;
 }
 
+.Potential_revenue{
+  padding: 1em;
+  border-radius: 10px;
+  text-align: center;
+  border: solid 1px var(--border-light);
+  height: 100%;
+  @include flex(column, center, center, 0)
+
+}
+
 .Services_stats {
   position: relative;
+  grid-column: 2/5;
+  border: solid 1px var(--border-light);
+  padding: 1em;
+  border-radius: 10px;
+
 
   h3,
   .Services_stat_items {
@@ -109,23 +125,22 @@
 }
 
 .Services_note {
-  width: 50%;
   background-color: var(--primary-color);
   padding: 1em;
   border-radius: 10px;
+  grid-column: 1/2;
+  border: solid 1px var(--border-light);
+  height: 100%;
 }
 
 .services_notes_stats {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+   grid-template-columns: repeat(5,1fr);
+  gap: 1em;
   justify-content: center;
   align-items: center;
-  justify-items: center;
-  margin-top: 2em;
-  position: relative;
-  border-top: solid 1px var(--border-light);
-  border-bottom: solid 1px var(--border-light);
-  padding-top: 2em;
+  width: 70vw;
+ 
 }
 
 .Services_note {
@@ -189,8 +204,12 @@
   top: 30%;
 }
 
-/* Extra small devices */
-@media screen and (max-width: 480px) {
+
+
+
+
+// /* Extra small devices */
+@media screen and (max-width: 700px) {
   .Services {
     grid-row: 10/10;
     width: 100%;
@@ -239,10 +258,26 @@
   }
 
   .services_notes_stats {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr ;
+    grid-template-rows: repeat(5,13vh);
     padding-top: 1em;
-    height: 80vh;
+    height: 90vh;
+    margin-top: 1.5em;
+    
   }
+
+  .Services_note{
+    grid-column: 1/-1;
+    width: 90vw;
+    height: max-content;
+    padding: .5em;
+
+    p{
+      width: 100%;
+    }
+  }
+
+
 
 
 
@@ -271,6 +306,12 @@
     font-size: 1rem;
   }
 
+   .Services_stats{
+    @include flex(column, center, center, 2em);
+    grid-row: 3/4;
+    grid-column: 1/-1;
+   }
+
   .arrow_svg {
     display: none;
   }
@@ -278,10 +319,15 @@
   .Services_state_calc {
     display: none;
   }
+
+  .Potential_revenue{
+    grid-row: 5/5;
+    color: var(--numbers-color);
+  }
 }
 
 /* Mobile */
-@media screen and (min-width: 481px) and (max-width: 768px) {
+@media screen and (min-width: 701px) and (max-width: 767px) {
   .Services {
     width: 100vw;
     padding: 1em;
@@ -394,7 +440,47 @@
 }
 
 /* Tablets */
-@media screen and (min-width: 769px) and (max-width: 1024px) {
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+.services_notes_stats {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5,32vh);
+    margin-top: 2em;
+    gap: 1em;
+    position: relative;
+    border-top: solid 1px var(--border-light);
+    border-bottom: solid 1px var(--border-light);
+    padding-top: 2em;
+    height: 100vh;
+}
+
+
+
+
+
+.Services_note {
+    background-color: var(--primary-color);
+    padding: 1em;
+    border-radius: 10px;
+    grid-column: 1/-1;
+    grid-row: 1/1;
+    height: max-content;
+}
+
+.Services_stats{
+  grid-column: 1/-1;
+  grid-row: 2/2;
+    height: max-content;
+
+}
+
+.Potential_revenue{
+    grid-column: 1/-1;
+  grid-row: 3/3;
+    height: max-content;
+
+}
+  
   .services_notes_stats p {
     text-align: center;
   }
@@ -416,4 +502,15 @@
   .number span {
     font-size: 1rem;
   }
+}
+
+
+@media screen and (min-width: 500px) and (max-width: 699px){
+ .Services_stats img {
+        width: 60vw;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
 }

@@ -40,7 +40,7 @@ const Welcome = () => {
 
       <div className="welcome_content">
         <h1 className="headline">
-          A comprehensive suite of APIs <br /> to help you build fintech products cost-effectively
+          Fintekkers is a comprehensive suite of APIs <br /> to help you build fintech products cost-effectively
         </h1>
 
         <div className="actions">

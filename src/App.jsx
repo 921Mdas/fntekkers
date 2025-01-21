@@ -11,6 +11,11 @@ import './App.scss';
 
 const App = () => {
 
+//   if (navigator.userAgent.indexOf('Safari') !== -1 && navigator.userAgent.indexOf('Chrome') === -1) {
+//   document.body.classList.add('is-safari');
+// }
+
+
   return (
     <div className='project_container'>
               <UI />
