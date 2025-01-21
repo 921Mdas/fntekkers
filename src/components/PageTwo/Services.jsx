@@ -33,9 +33,11 @@ const {iconSize} = useStore(state=>state)
 useScrollAnimation({
     trigger: ".Services",
     start: "top 70%",
-    end: "+=450", // Adjust based on animation duration
+    // start: "top 70%",
+    end: "+=150", // Adjust based on animation duration
     toggleActions: "restart none none none",
     scrub:true,
+    // markers:true,
     animations: [
   
         { 
@@ -94,51 +96,34 @@ useScrollAnimation({
 
     return (
         <div className='Services'>
-            {/* <h2 className="Services_headline">
-                Everyone needs the same basic services, and they rebuild them time and time again
-            </h2>
-            <div className="Service_blocks_container">
-                {
-                    ServicesData.map((data, idx)=>(
 
-                        <ServiceBlock 
-                                key={idx}
-                                title={data.title}
-                                services={data.services} 
-                                classifier={`Service_block${idx}`}
-                        />
-
-                    ))
-                }
-            
-            </div> */}
 
             <div className="services_notes_stats">
-            <div className="Services_note">
-                <span className='icon_container'><FaGripLinesVertical size={iconSize + 100}/></span>
-                <p>Industry wastefully rebuilds these systems many times despite having 99% the same requirements</p>
-            </div>
-            <div className="arrow_svg">
-                <HiMiniArrowTrendingUp size={iconSize + 60} />
-            </div>
-            <div className="Services_stats">
-               <img src="/assets-images/am.png" alt="" />
-               <h3> in the USA alone:</h3>
-               <div className="Services_stat_items">
-                        {ServicesData_Stats.map((stat, idx)=>
-                        ( <div key={idx} className={`Services_stats_item Services_stats_item${idx}`}>
-                            <div className="dot"></div>
-                            <span className="number">
-                                <Counter end={stat.number} duration={2000} />
-                            </span>
-                            <p className="text">{stat.text}</p>
-                        </div>
-            )
-                        )}
-               </div>
+                    <div className="Services_note">
+                        <p>Industry wastefully rebuilds these systems many times despite having 99% the same requirements</p>
+                    </div>
+      
+                    <div className="Services_stats">
+                    <img src="/assets-images/am.png" alt="" />
+                    <h3> in the USA alone:</h3>
+                    <div className="Services_stat_items">
+                                {ServicesData_Stats.map((stat, idx)=>
+                                ( <div key={idx} className={`Services_stats_item Services_stats_item${idx}`}>
+                                    <div className="dot"></div>
+                                    <span className="number">
+                                        <Counter end={stat.number} duration={2000} />
+                                    </span>
+                                    <p className="text">{stat.text}</p>
+                                </div>
+                    )
+                                )}
+                    </div>
 
 
-            </div>
+                    </div>
+                    <div className="Potential_revenue">
+                    <h3>x $1MM(avg) = $24B+ of annual low-hanging SaaS revenue</h3>
+                   </div>
 
 
 

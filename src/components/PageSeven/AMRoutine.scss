@@ -7,7 +7,8 @@ position: relative;
 height: max-content;
 align-items:start;
 display: grid;
-grid-template-columns: 1fr 1fr;
+grid-template-columns: 1fr;
+gap: 1em;
 grid-template-rows: auto;
 color: var(--text-color);
 
@@ -29,11 +30,12 @@ color: var(--text-color);
 }
 
 .clients_content{
-    grid-column: 1/-1;
-    grid-row: 2/2;
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(auto-fit, minmax(10vw,1fr));
+    grid-column: 1/-1;
+    width: 100%;
     gap: 1em;
+
 }
 
 .asset_manager_title{
@@ -45,6 +47,8 @@ color: var(--text-color);
   @include flex(column,center,center,1em);
 }
 
+
+
 .client_A_needs{
     line-height: 1.5em;
     border: solid 1px var(--border-light);
@@ -53,7 +57,6 @@ color: var(--text-color);
     background-color: var(--numbers-color);
     color: var(--bg-color);
     font-weight: 600;
-    width: max-content;
     span{
         vertical-align:middle;
        
@@ -130,12 +133,9 @@ color: var(--text-color);
     grid-column: 1/-1;
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(4,1fr);
-    justify-content: center;
-    justify-items: center;
-    padding: 1em;
-    // gap: 1em;
-    // padding: 0 1em;
+    gap: 1em;
+    grid-template-columns: repeat(auto-fit,minmax(10vw,1fr));
+
 }
 
 .question_model_one{
@@ -165,8 +165,8 @@ color: var(--text-color);
 }
 
 .asset_common_questions{
-   
-         grid-column: 1/-1;
+
+        grid-column: 1/-1;
         width: 100%;
         justify-content: center;
         justify-items: center;
@@ -178,6 +178,8 @@ color: var(--text-color);
     gap: 1em;
     justify-content: center;
     justify-items: center;
+    width: 100%;
+
     
 
     div:nth-child(n){
@@ -201,12 +203,15 @@ color: var(--text-color);
     color: white;
     font-weight: 600;
     width: max-content;
+    width: 100%;
+    @include flex(row, center, center, 1em);
     span{
         vertical-align:middle;
        
 
         span{
             padding-left: 1em;
+
             
             
         }
@@ -255,11 +260,12 @@ color: var(--text-color);
 }
 
 
-@media screen and (max-width: 390px) {
+
+@media screen and (max-width: 700px) {
   
   .AMRoutine_container_parent {
     display: grid;
-    grid-template-columns: 1fr; /* Stack columns on smaller screens */
+
   }
 
   .AMRoutine_container {
@@ -267,6 +273,15 @@ color: var(--text-color);
     gap: 1em;
     grid-template-columns: repeat(auto-fit, minmax(10vw, 1fr)); /* Keep this as is */
     grid-template-rows: none; 
+
+  }
+
+
+  .clients_content {
+    display: grid;
+    grid-template-columns:1fr; /* Stack columns for mobile */
+    grid-template-rows: repeat(4, 10vh);
+    gap: 1em;
   }
 
   .asset_manager_content {
@@ -274,20 +289,24 @@ color: var(--text-color);
   }
 
   .asset_manager{
-    width: 90vw;
-    grid-template-columns: 1fr 1fr ;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(30vw,1fr)) ;
     gap: 1em;
+
   }
 
-  .clients_content {
-    display: grid;
-    grid-template-columns:40vw 40vw; /* Stack columns for mobile */
-    gap: 1em;
+  .client_A{
+    grid-row: 1/1;
   }
+  .client_B{
+    grid-row: 2/2;
+  }
+
 
   .asset_manager_title {
     font-size: 1.5rem; /* Adjust title font size for better readability */
     text-align: center;
+    grid-area: text;
   }
 
   .asset_manager_person {
@@ -301,8 +320,19 @@ color: var(--text-color);
 
   .asset_manager_needs {
     font-size: 0.9rem; /* Smaller font size */
+    padding: 1em 0;
+
+    span{
+    @include flex(column, center, center, .5em);
     text-align: center;
-    width: 40vw;
+
+    span{
+        width: 100%;
+        padding: 0;
+        height: 8vh;
+    }
+
+    }
   }
 
   .question {
@@ -338,7 +368,13 @@ color: var(--text-color);
     align-items: stretch;
     justify-items: center;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    gap: 1em;
+}
+
+.question{
+    border: solid 1px var(--border-light);
+    padding: 1em;
+    border-radius: 10px;
 }
 
 .question div:nth-child(n) {
@@ -346,8 +382,8 @@ color: var(--text-color);
     border: solid 1px var(--border-light);
     border-radius: 10px;
     text-align: center;
-    width: 26vw;
-    margin-bottom: 0.3em;
+    width: 100%;
+    // margin-bottom: 0.3em;
 }
 
 
@@ -394,14 +430,13 @@ color: var(--text-color);
 .client_A_needs,.client_B_needs,.client_C_needs,.client_E_needs{
     font-size: .8rem;
     width: 100%;
-    aspect-ratio: 1/1;
 }
 
 
-.client_A_needs{
-    line-height: 1.5em;
+.client_A_needs, .client_B_needs, .client_C_needs, .client_E_needs{
+    line-height: .5em;
     border: solid 1px var(--border-light);
-    padding: 1em;
+    padding: .5em ;
     border-radius: 10px;
     font-weight: 600;
     width: 100%;
@@ -414,6 +449,8 @@ color: var(--text-color);
 
         span{
             padding-left: 1em;
+        @include flex(row, start, center, 0)
+
             
             
         }
@@ -422,54 +459,7 @@ color: var(--text-color);
    
 
 }
-.client_B_needs{
-    line-height: 1.5em;
-    font-weight: 600;
-    span{
-        vertical-align:middle;
-        display: flex;
 
-       
-
-        span{
-            padding-left: 1em;
-            
-            
-        }
-    }  
-}
-.client_C_needs{
-    line-height: 1.5em;
-    font-weight: 600;
-    span{
-        vertical-align:middle;
-        display: flex;
-
-       
-
-        span{
-            padding-left: 1em;
-            
-            
-        }
-    }  
-}
-.client_E_needs{
-    line-height: 1.5em;
-    font-weight: 600;
-    span{
-        vertical-align:middle;
-        display: flex;
-
-       
-
-        span{
-            padding-left: 1em;
-            
-            
-        }
-    }  
-}
 
 }
 
@@ -549,263 +539,10 @@ color: var(--text-color);
     font-size: 0.9rem; /* Smaller font size */
 }
 
-.services_notes_stats {
-    display: grid;
-    grid-template-columns: 1fr;
-    justify-content: center;
-    align-items: center;
-    justify-items: center;
-    margin-top: 2em;
-    position: relative;
-    border-top: solid 1px var(--border-light);
-    border-bottom: solid 1px var(--border-light);
-    padding-top: 2em;
-}
 
-.Services_note p span {
-    font-size: 2rem;
-    color: var(--numbers-color);
-    position: absolute;
-    top: 50%;
-    font-weight: bold;
-    left: 25%;
-}
-
-.Services_note {
-    width: 80%;
-    background-color: var(--primary-color);
-    padding: 1em;
-    border-radius: 10px;
-}
-
-.arrow_svg {
-    position: absolute;
-    left: 45%;
-    top: 40%;
-}
 
 
 }
-
-@media screen and (min-width: 391px) and (max-width: 700px){
- 
-.AMRoutine_container_parent {
-    display: grid;
-    grid-template-columns: 1fr; /* Stack columns on smaller screens */
-  }
-
-  .AMRoutine_container {
-    display: grid;
-    gap: 1em;
-    grid-template-columns: repeat(auto-fit, minmax(10vw, 1fr)); /* Keep this as is */
-    grid-template-rows: none; 
-  }
-
-  .asset_manager_content {
-    grid-column: 1/-1;
-  }
-
-  .asset_manager{
-    width: 90vw;
-    grid-template-columns: 1fr 1fr ;
-    gap: 1em;
-  }
-
-  .clients_content {
-    display: grid;
-    grid-template-columns:40vw 40vw; /* Stack columns for mobile */
-    gap: 1em;
-  }
-
-  .asset_manager_title {
-    font-size: 1.5rem; /* Adjust title font size for better readability */
-    text-align: center;
-  }
-
-  .asset_manager_person {
-    display: flex;
-    flex-direction: column; /* Stack content vertically */
-  }
-
-  .client_A_needs, .client_B_needs, .client_C_needs, .client_E_needs {
-    font-size: 0.9rem; /* Smaller font size */
-  }
-
-  .asset_manager_needs {
-    font-size: 0.9rem; /* Smaller font size */
-    text-align: center;
-    width: 40vw;
-  }
-
-  .question {
-    grid-template-columns: 1fr; /* Stack columns for mobile */
-    gap: 0.5em; /* Reduce gap for mobile */
-  }
-
-  .question div {
-    width: 90vw; /* Full width on mobile for better layout */
-  }
-
-  .lines_draw {
-    position: relative; /* Adjust for better positioning on mobile */
-    left: 0;
-    width: 100%;
-    height: auto;
-  }
-
-  .line_one, .line_two, .line_three, .line_four {
-    left: 50%; /* Center lines on mobile */
-    top: auto;
-  }
-
-  .asset_manager_scenario {
-    position: static; /* Remove absolute positioning */
-    text-align: center;
-  }
-
-  .asset_common_questions {
-    grid-column: 1 / -1;
-    width: 100%;
-    justify-content: center;
-    align-items: stretch;
-    justify-items: center;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-}
-
-.question div:nth-child(n) {
-    padding: 1em;
-    border: solid 1px var(--border-light);
-    border-radius: 10px;
-    text-align: center;
-    width: 26vw;
-    margin-bottom: 0.3em;
-}
-
-
-.link_one{
-    background-color: rgb(165, 164, 164);
-    color: white;
-}
-
-.link_two{
-    background-color: var(--highlight-yellow-color);
-    color: white;
-}
-.link_three{
-    background-color: #027a76;
-    color: white;
-}
-.link_four{
-    background-color: rgb(0, 191, 255);
-    color: white;
-}
-.link_five{
-    background-color:#870b02;
-    color: white;
-}
-
-
-.client_asset_manager_link_one{
-    background-color: var(--bg-color-light);
-    color: white;
-}
-.client_asset_manager_link_two{
-    background-color: var(--numbers-color);
-    color: white;
-}
-.client_asset_manager_link_three{
-    background-color: var(--highlight-color);
-    color: white;
-}
-.client_asset_manager_link_four{
-   background-color: var(--dark-highlight-color);
-   color: white;
-}
-
-.client_A_needs,.client_B_needs,.client_C_needs,.client_E_needs{
-    font-size: .8rem;
-    width: 100%;
-    aspect-ratio: 1/1;
-}
-
-
-.client_A_needs{
-    line-height: 1.5em;
-    border: solid 1px var(--border-light);
-    padding: 1em;
-    border-radius: 10px;
-    font-weight: 600;
-    width: 100%;
-   
-    span{
-        vertical-align:middle;
-        display: flex;
-    
-
-
-        span{
-            padding-left: 1em;
-            
-            
-        }
-    }  
-
-   
-
-}
-.client_B_needs{
-    line-height: 1.5em;
-    font-weight: 600;
-    span{
-        vertical-align:middle;
-        display: flex;
-
-       
-
-        span{
-            padding-left: 1em;
-            
-            
-        }
-    }  
-}
-.client_C_needs{
-    line-height: 1.5em;
-    font-weight: 600;
-    span{
-        vertical-align:middle;
-        display: flex;
-
-       
-
-        span{
-            padding-left: 1em;
-            
-            
-        }
-    }  
-}
-.client_E_needs{
-    line-height: 1.5em;
-    font-weight: 600;
-    span{
-        vertical-align:middle;
-        display: flex;
-
-       
-
-        span{
-            padding-left: 1em;
-            
-            
-        }
-    }  
-}
-
-
-}
-
 
 /* Target screens between 900px and 1200px */
 @media screen and (min-width: 900px) and (max-width: 1200px) {
@@ -913,3 +650,5 @@ color: var(--text-color);
     top: 40%;
 }
 }
+
+

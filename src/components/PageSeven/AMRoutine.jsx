@@ -37,11 +37,13 @@ useScrollAnimation({
     ],
   });
 
-    useEffect(() => {
+useEffect(() => {
   return () => {
     ScrollTrigger.getAll().forEach(trigger => trigger.kill());
   };
 }, []);
+
+
 
 
   return (
@@ -118,16 +120,16 @@ useScrollAnimation({
           <div className="asset_manager">
               
               <div className="asset_manager_needs equity client_asset_manager_link_one">
-              <span> <IoPerson /> <span>Equity Asset Manager</span> </span> <br/>
+              <span> <IoPerson /> <span>Equity Asset Manager</span> </span> 
               </div>
               <div className="asset_manager_needs client_asset_manager_link_two">
-              <span> <IoPerson /> <span>Retirement Advisor</span> </span> <br/>
+              <span> <IoPerson /> <span>Retirement Advisor</span> </span> 
               </div>
               <div className="asset_manager_needs client_asset_manager_link_three">
-              <span> <IoPerson /> <span>Full Service Asset Manager</span> </span> <br/>
+              <span> <IoPerson /> <span>Full Service Asset Manager</span> </span> 
               </div>
               <div className="asset_manager_needs client_asset_manager_link_four">
-              <span> <IoPerson /> <span>Insurance firm</span> </span> <br/>
+              <span> <IoPerson /> <span>Insurance firm</span> </span>
               </div>
         
           </div>

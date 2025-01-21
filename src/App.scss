@@ -24,6 +24,9 @@ h6 {
   opacity: 0.5;
 }
 
+   $primary-red:red;
+
+
 :root {
   --bg-color: #132c35;
   --text-color: #e3e6e6;
@@ -49,6 +52,7 @@ h6 {
   --regular-mobile-end: 768px;
   --tablets-start: 769px;
   --tablets-end: 1024px;
+
 }
 
 html,
