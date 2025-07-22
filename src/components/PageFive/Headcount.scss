@@ -1,49 +1,50 @@
 @import "../../App.scss";
 
+// Main container for the Headcount section
+.Headcount_container {
+  grid-row: 11 / 11; // Places this section on a specific grid row
+  grid-column: 1 / -1; // Spans the entire grid width
+  width: 85vw; // Responsive width
+  height: max-content; // Height grows with content
+  margin: 0 auto; // Center horizontally
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(10, auto); // 10 auto-sized rows
+  justify-content: start;
+  align-items: start;
 
-.Headcount_container{
-    grid-row: 11/11;
-    grid-column: 1/-1;
-     width: 85vw;
-    height: max-content;
-     margin: 0 auto;
+  // Styles for every direct child div (row in the headcount list)
+  div:nth-child(n) {
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(10,auto);
-    justify-content: start;
-    align-items: start;
+    grid-template-columns: repeat(3, 1fr); // Three columns per row
+    padding: 0.5em;
 
+    // Styles for each column cell
+    div {
+      border: solid 1px var(--bg-color-light); // Light border
+      display: flex; // Flex container for content alignment
 
-
-
-    div:nth-child(n){
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    padding: .5em;
-
-
-    div{
-    border: solid 1px var(--bg-color-light);
-    display: flex ;
-      
-    &:nth-child(1){
+      // Round left corners on first column
+      &:nth-child(1) {
         border-top-left-radius: 10px;
         border-bottom-left-radius: 10px;
-    }
-    &:nth-child(3){
+      }
+
+      // Round right corners on third column
+      &:nth-child(3) {
         border-top-right-radius: 10px;
         border-bottom-right-radius: 10px;
+      }
     }
-    }
-    
-    }
+  }
 }
 
-.headcount_title_text{
-    font-weight: bold;
+// Style for bold column headers
+.headcount_title_text {
+  font-weight: bold;
 }
 
-.headcount_risk2{
-    border: solid 1px orange;
-    
+// Special border styling for Risk component's description cell
+.headcount_risk2 {
+  border: solid 1px orange;
 }

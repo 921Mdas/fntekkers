@@ -1,285 +1,219 @@
+// Import global styles
 @import "../../App.scss";
 
-    
-.AMRoutine_container_parent{
-@extend .pages_reset; 
-position: relative;
-height: max-content;
-align-items:start;
-display: grid;
-grid-template-columns: 1fr;
-gap: 1em;
-grid-template-rows: auto;
-color: var(--text-color);
-
+/* Main container for the AM Routine page */
+.AMRoutine_container_parent {
+  @extend .pages_reset; // Extend base page reset styles
+  position: relative;
+  height: max-content;
+  align-items: start;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1em;
+  grid-template-rows: auto;
+  color: var(--text-color);
 }
 
-.AMRoutine_container{
-  @extend .pages_reset; 
+/* Container for routine elements */
+.AMRoutine_container {
+  @extend .pages_reset; // Extend base page reset styles
   height: max-content;
   position: relative;
   display: grid;
-  gap:1em;
-  grid-template-columns: repeat(auto-fit,minmax(10vw,1fr));
+  gap: 1em;
+  grid-template-columns: repeat(auto-fit, minmax(10vw, 1fr));
   grid-template-rows: repeat(2, 1fr);
 }
 
-.asset_manager_content{
-    grid-column: 1/-1;
-    grid-row: 1/1;
+/* Asset manager content section */
+.asset_manager_content {
+  grid-column: 1/-1; // Span full width
+  grid-row: 1/1;
 }
 
-.clients_content{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(10vw,1fr));
-    grid-column: 1/-1;
-    width: 100%;
-    gap: 1em;
-
+/* Container for client content sections */
+.clients_content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10vw, 1fr));
+  grid-column: 1/-1; // Span full width
+  width: 100%;
+  gap: 1em;
 }
 
-.asset_manager_title{
-    font-size: 2rem;
+/* Title for asset manager section */
+.asset_manager_title {
+  font-size: 2rem;
 }
 
-.asset_manager_person{
+/* Asset manager person container */
+.asset_manager_person {
   border: solid 1px rgb(0, 255, 162);
-  @include flex(column,center,center,1em);
+  @include flex(column, center, center, 1em); // Flexbox mixin
 }
 
-
-
-.client_A_needs{
-    line-height: 1.5em;
-    border: solid 1px var(--border-light);
-    padding: 1em;
-    border-radius: 10px;
-    background-color: var(--numbers-color);
-    color: var(--bg-color);
-    font-weight: 600;
-    span{
-        vertical-align:middle;
-       
-
-        span{
-            padding-left: 1em;
-            
-            
-        }
-    }  
-
-   
-
-}
-.client_B_needs{
-    line-height: 1.5em;
-    border: solid 1px var(--border-light);
-    padding: 1em;
-    border-radius: 10px;
-   background-color: var(--numbers-color);
-    color: var(--bg-color);
-    font-weight: 600;
-    span{
-        vertical-align:middle;
-       
-
-        span{
-            padding-left: 1em;
-            
-            
-        }
-    }  
-}
-.client_C_needs{
-    line-height: 1.5em;
-    border: solid 1px var(--border-light);
-    padding: 1em;
-    border-radius: 10px;
-   background-color: var(--numbers-color);
-     color: var(--bg-color);
-    font-weight: 600;
-    span{
-        vertical-align:middle;
-       
-
-        span{
-            padding-left: 1em;
-            
-            
-        }
-    }  
-}
-.client_E_needs{
-    line-height: 1.5em;
-    border: solid 1px var(--border-light);
-    padding: 1em;
-    border-radius: 10px;
-    background-color: var(--numbers-color);
-    color: var(--bg-color);
-    font-weight: 600;
-    span{
-        vertical-align:middle;
-       
-
-        span{
-            padding-left: 1em;
-            
-            
-        }
-    }  
-}
-
-.asset_manager{
-    grid-column: 1/-1;
-    width: 100%;
-    display: grid;
-    gap: 1em;
-    grid-template-columns: repeat(auto-fit,minmax(10vw,1fr));
-
-}
-
-.question_model_one{
-    background-color: var(--numbers-color);
-    color: var(--bg-color);
-    font-weight: 500;
-    display: grid;
-    justify-content: center;
-    align-items: center;
-
-}
-
-.question_model_two{
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--highlight-color);
-    color: white;
-    font-weight: 500;
-
-}
-
-.question_question{
-    display: grid;
-    justify-content: center;
-    align-items: center;
-}
-
-.asset_common_questions{
-
-        grid-column: 1/-1;
-        width: 100%;
-        justify-content: center;
-        justify-items: center;
-}
-
-.question{
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 1em;
-    justify-content: center;
-    justify-items: center;
-    width: 100%;
-
-    
-
-    div:nth-child(n){
-        padding: 1em;
-        border: solid 1px var(--border-light);
-        border-radius: 10px;
-        text-align: center;
-        width: 20vw;
-        margin-bottom: .3em;
-    }
-   
-}
-
-
-.asset_manager_needs{
-    line-height: 1.5em;
-    border: solid 1px var(--border-light);
-    padding: 1em;
-    border-radius: 10px;
-    background-color: var(--highlight-color);
-    color: white;
-    font-weight: 600;
-    width: max-content;
-    width: 100%;
-    @include flex(row, center, center, 1em);
-    span{
-        vertical-align:middle;
-       
-
-        span{
-            padding-left: 1em;
-
-            
-            
-        }
-    }  
-
-   
-
-}
-
-.lines_draw{
-    position: absolute;
-    top: 0;
-    left: -14%;
-    width: 100%;
-    height: 100%;
-
-    .line_asset{
-        position: absolute;
-
-    }
-
-
-    .line_one{
-        left: 55.5%;
-        top: 10%;
-    }
-
-    .line_two{
-      left:58%;
-      top:55%;
-    }
-    .line_three{
-      left:44%;
-      top:245%;
-    }
-    .line_four{
-      left:70%;
-      top:245%;
-    }
-}
-
-.asset_manager_scenario{
-    position: absolute;
-    left: 0;
-    top: 50%;
-}
-
-
-
-@media screen and (max-width: 700px) {
+/* Client needs sections - shared styles */
+.client_A_needs,
+.client_B_needs,
+.client_C_needs,
+.client_E_needs {
+  line-height: 1.5em;
+  border: solid 1px var(--border-light);
+  padding: 1em;
+  border-radius: $bd-radius-max;
+  background-color: var(--numbers-color);
+  color: var(--bg-color);
+  font-weight: 600;
   
+  span {
+    vertical-align: middle;
+    
+    span {
+      padding-left: 1em;
+    }
+  }
+}
+
+/* Asset manager section */
+.asset_manager {
+  grid-column: 1/-1; // Span full width
+  width: 100%;
+  display: grid;
+  gap: 1em;
+  grid-template-columns: repeat(auto-fit, minmax(10vw, 1fr));
+}
+
+/* Question model styles */
+.question_model_one {
+  background-color: var(--numbers-color);
+  color: var(--bg-color);
+  font-weight: 500;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+.question_model_two {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--highlight-color);
+  color: white;
+  font-weight: 500;
+}
+
+.question_question {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Common questions section */
+.asset_common_questions {
+  grid-column: 1/-1; // Span full width
+  width: 100%;
+  justify-content: center;
+  justify-items: center;
+}
+
+/* Questions container */
+.question {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1em;
+  justify-content: center;
+  justify-items: center;
+  width: 100%;
+  
+  div:nth-child(n) {
+    padding: 1em;
+    border: solid 1px var(--border-light);
+    border-radius: $bd-radius-max;
+    text-align: center;
+    width: 20vw;
+    margin-bottom: .3em;
+  }
+}
+
+/* Asset manager needs section */
+.asset_manager_needs {
+  line-height: 1.5em;
+  border: solid 1px var(--border-light);
+  padding: 1em;
+  border-radius: $bd-radius-max;
+  background-color: var(--highlight-color);
+  color: white;
+  font-weight: 600;
+  width: max-content;
+  width: 100%;
+  @include flex(row, center, center, 1em); // Flexbox mixin
+  
+  span {
+    vertical-align: middle;
+    
+    span {
+      padding-left: 1em;
+    }
+  }
+}
+
+/* Decorative lines */
+.lines_draw {
+  position: absolute;
+  top: 0;
+  left: -14%;
+  width: 100%;
+  height: 100%;
+
+  .line_asset {
+    position: absolute;
+  }
+
+  .line_one {
+    left: 55.5%;
+    top: 10%;
+  }
+
+  .line_two {
+    left: 58%;
+    top: 55%;
+  }
+  
+  .line_three {
+    left: 44%;
+    top: 245%;
+  }
+  
+  .line_four {
+    left: 70%;
+    top: 245%;
+  }
+}
+
+/* Asset manager scenario positioning */
+.asset_manager_scenario {
+  position: absolute;
+  left: 0;
+  top: 50%;
+}
+
+/* ====================== */
+/* MOBILE RESPONSIVE STYLES (max-width: 700px) */
+/* ====================== */
+@media screen and (max-width: 700px) {
   .AMRoutine_container_parent {
     display: grid;
-
   }
 
   .AMRoutine_container {
     display: grid;
     gap: 1em;
-    grid-template-columns: repeat(auto-fit, minmax(10vw, 1fr)); /* Keep this as is */
-    grid-template-rows: none; 
-
+    grid-template-columns: repeat(auto-fit, minmax(10vw, 1fr));
+    grid-template-rows: none;
   }
-
 
   .clients_content {
     display: grid;
-    grid-template-columns:1fr; /* Stack columns for mobile */
+    grid-template-columns: 1fr; // Single column layout
     grid-template-rows: repeat(4, 10vh);
     gap: 1em;
   }
@@ -288,79 +222,92 @@ color: var(--text-color);
     grid-column: 1/-1;
   }
 
-  .asset_manager{
+  .asset_manager {
     width: 100%;
-    grid-template-columns: repeat(auto-fit, minmax(30vw,1fr)) ;
+    grid-template-columns: repeat(auto-fit, minmax(30vw, 1fr));
     gap: 1em;
-
   }
 
-  .client_A{
+  /* Client positioning in mobile */
+  .client_A {
     grid-row: 1/1;
   }
-  .client_B{
+  
+  .client_B {
     grid-row: 2/2;
   }
 
-
+  /* Adjust title for mobile */
   .asset_manager_title {
-    font-size: 1.5rem; /* Adjust title font size for better readability */
+    font-size: 1.5rem;
     text-align: center;
     grid-area: text;
   }
 
+  /* Adjust asset manager person for mobile */
   .asset_manager_person {
     display: flex;
-    flex-direction: column; /* Stack content vertically */
+    flex-direction: column;
   }
 
-  .client_A_needs, .client_B_needs, .client_C_needs, .client_E_needs {
-    font-size: 0.9rem; /* Smaller font size */
+  /* Adjust client needs for mobile */
+  .client_A_needs,
+  .client_B_needs,
+  .client_C_needs,
+  .client_E_needs {
+    font-size: 0.9rem;
   }
 
+  /* Adjust asset manager needs for mobile */
   .asset_manager_needs {
-    font-size: 0.9rem; /* Smaller font size */
+    font-size: 0.9rem;
     padding: 1em 0;
-
-    span{
-    @include flex(column, center, center, .5em);
-    text-align: center;
-
-    span{
+    
+    span {
+      @include flex(column, center, center, .5em);
+      text-align: center;
+      
+      span {
         width: 100%;
         padding: 0;
         height: 8vh;
-    }
-
+      }
     }
   }
 
+  /* Adjust questions for mobile */
   .question {
-    grid-template-columns: 1fr; /* Stack columns for mobile */
-    gap: 0.5em; /* Reduce gap for mobile */
+    grid-template-columns: 1fr; // Single column layout
+    gap: 0.5em;
+    
+    div {
+      width: 90vw; // Full width on mobile
+    }
   }
 
-  .question div {
-    width: 90vw; /* Full width on mobile for better layout */
-  }
-
+  /* Adjust decorative lines for mobile */
   .lines_draw {
-    position: relative; /* Adjust for better positioning on mobile */
+    position: relative;
     left: 0;
     width: 100%;
     height: auto;
+    
+    .line_one,
+    .line_two,
+    .line_three,
+    .line_four {
+      left: 50%;
+      top: auto;
+    }
   }
 
-  .line_one, .line_two, .line_three, .line_four {
-    left: 50%; /* Center lines on mobile */
-    top: auto;
-  }
-
+  /* Adjust scenario for mobile */
   .asset_manager_scenario {
-    position: static; /* Remove absolute positioning */
+    position: static;
     text-align: center;
   }
 
+  /* Common questions adjustments */
   .asset_common_questions {
     grid-column: 1 / -1;
     width: 100%;
@@ -369,187 +316,180 @@ color: var(--text-color);
     justify-items: center;
     display: grid;
     gap: 1em;
-}
+  }
 
-.question{
+  .question {
     border: solid 1px var(--border-light);
     padding: 1em;
-    border-radius: 10px;
-}
+    border-radius: $bd-radius-max;
+    
+    div:nth-child(n) {
+      padding: 1em;
+      border: solid 1px var(--border-light);
+      border-radius: $bd-radius-max;
+      text-align: center;
+      width: 100%;
+    }
+  }
 
-.question div:nth-child(n) {
-    padding: 1em;
-    border: solid 1px var(--border-light);
-    border-radius: 10px;
-    text-align: center;
-    width: 100%;
-    // margin-bottom: 0.3em;
-}
-
-
-.link_one{
+  /* Link color styles */
+  .link_one {
     background-color: rgb(165, 164, 164);
     color: white;
-}
+  }
 
-.link_two{
+  .link_two {
     background-color: var(--highlight-yellow-color);
     color: white;
-}
-.link_three{
+  }
+  
+  .link_three {
     background-color: #027a76;
     color: white;
-}
-.link_four{
+  }
+  
+  .link_four {
     background-color: rgb(0, 191, 255);
     color: white;
-}
-.link_five{
-    background-color:#870b02;
+  }
+  
+  .link_five {
+    background-color: #870b02;
     color: white;
-}
+  }
 
-
-.client_asset_manager_link_one{
+  /* Client asset manager link colors */
+  .client_asset_manager_link_one {
     background-color: var(--bg-color-light);
     color: white;
-}
-.client_asset_manager_link_two{
+  }
+  
+  .client_asset_manager_link_two {
     background-color: var(--numbers-color);
     color: white;
-}
-.client_asset_manager_link_three{
+  }
+  
+  .client_asset_manager_link_three {
     background-color: var(--highlight-color);
     color: white;
-}
-.client_asset_manager_link_four{
-   background-color: var(--dark-highlight-color);
-   color: white;
-}
+  }
+  
+  .client_asset_manager_link_four {
+    background-color: var(--dark-highlight-color);
+    color: white;
+  }
 
-.client_A_needs,.client_B_needs,.client_C_needs,.client_E_needs{
+  /* Adjust client needs for mobile */
+  .client_A_needs,
+  .client_B_needs,
+  .client_C_needs,
+  .client_E_needs {
     font-size: .8rem;
     width: 100%;
-}
-
-
-.client_A_needs, .client_B_needs, .client_C_needs, .client_E_needs{
     line-height: .5em;
-    border: solid 1px var(--border-light);
-    padding: .5em ;
-    border-radius: 10px;
-    font-weight: 600;
-    width: 100%;
-   
-    span{
-        vertical-align:middle;
-        display: flex;
+    padding: .5em;
     
-
-
-        span{
-            padding-left: 1em;
-        @include flex(row, start, center, 0)
-
-            
-            
-        }
-    }  
-
-   
-
+    span {
+      vertical-align: middle;
+      display: flex;
+      
+      span {
+        padding-left: 1em;
+        @include flex(row, start, center, 0);
+      }
+    }
+  }
 }
 
-
-}
-
-
-@media screen and (min-width: 701px) and (max-width: 899px){
-
-    .clients_content {
+/* ====================== */
+/* TABLET RESPONSIVE STYLES (701px - 899px) */
+/* ====================== */
+@media screen and (min-width: 701px) and (max-width: 899px) {
+  .clients_content {
     display: grid;
-    grid-template-columns:40vw 40vw; /* Stack columns for mobile */
+    grid-template-columns: 40vw 40vw; // Two column layout
     gap: 1em;
   }
 
-  .asset_hero_section_text h1{
+  .asset_hero_section_text h1 {
     font-size: 2rem;
   }
 
   .asset_manager_title {
     font-size: 2rem;
     text-align: center;
-}
+  }
 
   .client_A_needs {
     line-height: 1.5em;
     border: solid 1px var(--border-light);
     padding: 1em;
-    border-radius: 10px;
+    border-radius: $bd-radius-max;
     background-color: var(--numbers-color);
     color: var(--bg-color);
     font-weight: 600;
     width: 100%;
-}
+  }
 
-.asset_manager {
+  .Services {
+    height: 80vh;
+  }
+
+  .asset_manager {
     grid-column: 1 / -1;
     width: 100%;
-    display: grid
-;
+    display: grid;
     grid-template-columns: 40vw 40vw;
     justify-content: center;
     justify-items: center;
     padding: 1em;
     gap: 1em;
-}
+  }
 
-
-.question {
-    display: grid
-;
+  .question {
+    display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1em;
     justify-content: center;
     justify-items: center;
     width: 100%;
-}
-
-    .question div:nth-child(n) {
-        padding: 1em;
-        border: solid 1px var(--border-light);
-        border-radius: 10px;
-        text-align: center;
-        width: 90%;
-        margin-bottom: 0.3em;
+    
+    div:nth-child(n) {
+      padding: 1em;
+      border: solid 1px var(--border-light);
+      border-radius: $bd-radius-max;
+      text-align: center;
+      width: 90%;
+      margin-bottom: 0.3em;
     }
+  }
 
-.asset_manager_needs {
+  .asset_manager_needs {
     line-height: 1.5em;
     border: solid 1px var(--border-light);
     padding: 1em;
-    border-radius: 10px;
+    border-radius: $bd-radius-max;
     background-color: var(--highlight-color);
     color: white;
     font-weight: 600;
     width: 100%;
+  }
+
+  .client_A_needs,
+  .client_B_needs,
+  .client_C_needs,
+  .client_E_needs {
+    font-size: 0.9rem;
+  }
 }
 
-.client_A_needs, .client_B_needs, .client_C_needs, .client_E_needs {
-    font-size: 0.9rem; /* Smaller font size */
-}
-
-
-
-
-}
-
-/* Target screens between 900px and 1200px */
+/* ====================== */
+/* LARGE TABLET/DESKTOP STYLES (900px - 1200px) */
+/* ====================== */
 @media screen and (min-width: 900px) and (max-width: 1200px) {
- 
-.clients_content {
+  .clients_content {
     display: grid;
-    grid-template-columns:40vw 40vw; /* Stack columns for mobile */
+    grid-template-columns: 40vw 40vw; // Two column layout
     gap: 1em;
   }
 
@@ -557,65 +497,66 @@ color: var(--text-color);
     line-height: 1.5em;
     border: solid 1px var(--border-light);
     padding: 1em;
-    border-radius: 10px;
+    border-radius: $bd-radius-max;
     background-color: var(--numbers-color);
     color: var(--bg-color);
     font-weight: 600;
     width: 100%;
-}
+  }
 
-.Services{
+  .Services {
     height: 80vh;
-}
+  }
 
-.asset_manager {
+  .asset_manager {
     grid-column: 1 / -1;
     width: 100%;
-    display: grid
-;
+    display: grid;
     grid-template-columns: 40vw 40vw;
     justify-content: center;
     justify-items: center;
     padding: 1em;
     gap: 1em;
-}
+  }
 
-
-.question {
-    display: grid
-;
+  .question {
+    display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1em;
     justify-content: center;
     justify-items: center;
     width: 100%;
-}
-
-    .question div:nth-child(n) {
-        padding: 1em;
-        border: solid 1px var(--border-light);
-        border-radius: 10px;
-        text-align: center;
-        width: 90%;
-        margin-bottom: 0.3em;
+    
+    div:nth-child(n) {
+      padding: 1em;
+      border: solid 1px var(--border-light);
+      border-radius: $bd-radius-max;
+      text-align: center;
+      width: 90%;
+      margin-bottom: 0.3em;
     }
+  }
 
-.asset_manager_needs {
+  .asset_manager_needs {
     line-height: 1.5em;
     border: solid 1px var(--border-light);
     padding: 1em;
-    border-radius: 10px;
+    border-radius: $bd-radius-max;
     background-color: var(--highlight-color);
     color: white;
     font-weight: 600;
     width: 100%;
-}
+  }
 
-.client_A_needs, .client_B_needs, .client_C_needs, .client_E_needs {
-    font-size: 0.9rem; /* Smaller font size */
-}
+  .client_A_needs,
+  .client_B_needs,
+  .client_C_needs,
+  .client_E_needs {
+    font-size: 0.9rem;
+  }
 
-.services_notes_stats {
+  /* Services notes stats */
+  .services_notes_stats {
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-content: center;
@@ -626,29 +567,27 @@ color: var(--text-color);
     border-top: solid 1px var(--border-light);
     border-bottom: solid 1px var(--border-light);
     padding-top: 2em;
-}
+  }
 
-.Services_note p span {
+  .Services_note p span {
     font-size: 2rem;
     color: var(--numbers-color);
     position: absolute;
     top: 50%;
     font-weight: bold;
     left: 25%;
-}
+  }
 
-.Services_note {
+  .Services_note {
     width: 80%;
     background-color: var(--primary-color);
     padding: 1em;
-    border-radius: 10px;
-}
+    border-radius: $bd-radius-max;
+  }
 
-.arrow_svg {
+  .arrow_svg {
     position: absolute;
     left: 45%;
     top: 40%;
+  }
 }
-}
-
-

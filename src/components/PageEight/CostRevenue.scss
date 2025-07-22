@@ -1,22 +1,32 @@
+// Import shared variables, mixins, etc.
 @import "../../App.scss";
 
+// ================================
+// Main container for the entire section
+// ================================
 .cost_revenue_container {
     color: white;
     @extend .pages_reset;
-    width: 100%; /* Replace 100vw to avoid horizontal scroll on iOS */
+    width: 100%; // Use 100% instead of 100vw to avoid iOS horizontal scroll bug
     position: relative;
     height: max-content;
     align-items: start;
     display: grid;
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling for iOS */
+    -webkit-overflow-scrolling: touch; // Enable smooth scrolling on iOS
     padding: env(safe-area-inset-left) env(safe-area-inset-right);
 }
 
+// ================================
+// Wrapper for title and content blocks
+// ================================
 .cost_revenue {
     display: grid;
     grid-template-columns: 1fr;
 }
 
+// ================================
+// Styling for grouped buttons (not used in main layout yet?)
+// ================================
 .Buttons_actions {
     display: flex;
     justify-content: center;
@@ -26,41 +36,29 @@
         width: 8vw;
         font-weight: bold;
         background: var(--grey-color);
-        touch-action: manipulation; /* Improves click response on iOS */
+        touch-action: manipulation; // Prevent delay on touch devices
     }
 }
 
-
-
-.cost_rev_item_0{
-    .cost_rev_item_title{
+// ================================
+// Title colors for each organization
+// ================================
+.cost_rev_item_0 .cost_rev_item_title {
     background-color: #1f4976;
-
-
-    }
 }
-.cost_rev_item_1{
-    .cost_rev_item_title{
+.cost_rev_item_1 .cost_rev_item_title {
     background-color: #db5602;
-
-
-    }
 }
-.cost_rev_item_2{
-    .cost_rev_item_title{
+.cost_rev_item_2 .cost_rev_item_title {
     background-color: rgba(255, 204, 0, 0.848);
-
-
-    }
 }
-.cost_rev_item_3{
-    .cost_rev_item_title{
+.cost_rev_item_3 .cost_rev_item_title {
     background-color: #fc6459;
-
-
-    }
 }
 
+// ================================
+// Styling for cost legend labels
+// ================================
 .legends {
     .cost {
         font-weight: bold;
@@ -77,11 +75,12 @@
             padding: 0 1em;
             border-radius: 5px;
         }
-
-     
     }
 }
 
+// ================================
+// Main title for the section
+// ================================
 .cost_rev_title {
     font-size: 2rem;
     font-weight: bold;
@@ -89,10 +88,16 @@
     padding: 1em;
 }
 
+// ================================
+// Container for all cost items
+// ================================
 .cost_rev_graphs {
     width: 100%;
 }
 
+// ================================
+// Each row: one institution's data
+// ================================
 .cost_rev_item {
     display: grid;
     grid-template-columns: 20vw 60vw;
@@ -100,13 +105,19 @@
     gap: 1em;
 }
 
+// ================================
+// Institution name block
+// ================================
 .cost_rev_item_title {
     border: solid 1px var(--text-color);
     @include flex(row, center, center, 0);
-    border-radius: 10px;
+    border-radius: $bd-radius-max;
     font-weight: bold;
 }
 
+// ================================
+// Horizontal grid of components for each institution
+// ================================
 .cost_rev_item_elements {
     display: grid;
     grid-template-columns: repeat(5, 10vw);
@@ -118,10 +129,13 @@
         border: solid 1px var(--text-color);
         text-align: center;
         @include flex(row, center, center, 0);
-        border-radius: 10px;
+        border-radius: $bd-radius-max;
     }
 }
 
+// ================================
+// Bar chart styling
+// ================================
 .cost_bar_chart {
     display: flex;
     justify-content: center;
@@ -130,13 +144,14 @@
     margin-top: 1em;
 }
 
-
+// ================================
+// Medium Screens: Tablets (391px - 999px)
+// ================================
 @media screen and (min-width: 391px) and (max-width: 999px) {
   .cost_revenue_container {
     width: 90%;
     overflow: auto;
   }
-
 
   .cost_revenue {
     grid-template-rows: auto;
@@ -150,48 +165,41 @@
   }
 
   .cost_rev_title {
-        font-size: 1.5rem;
-        text-align: center;
-    }
+      font-size: 1.5rem;
+      text-align: center;
+  }
 
-    .cost_rev_item {
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr;
-        gap: 1em;
-        border: solid 1px grey;
-        border-radius: 10px;
-    }
+  .cost_rev_item {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 1em;
+      border: solid 1px grey;
+      border-radius: $bd-radius-max;
+  }
 
-    .cost_rev_item_elements {
-        grid-template-columns: repeat(auto-fit, minmax(10vw, 1fr));
-        grid-template-rows: auto;
-        gap: 0.4em;
+  .cost_rev_item_elements {
+      grid-template-columns: repeat(auto-fit, minmax(10vw, 1fr));
+      grid-template-rows: auto;
+      gap: 0.4em;
 
-        div {
-            padding: 0 1em;
-            font-size: 0.8rem;
-            display: grid;
-        }
+      div {
+          padding: 0 1em;
+          font-size: 0.8rem;
+          display: grid;
+      }
 
-        div:nth-child(1) {
-            background-color: var(--grey-color);
-        }
-        div:nth-child(2) {
-            background-color: var(--highlight-yellow-color);
-        }
-        div:nth-child(3) {
-            background-color: var(--darkgreen-color);
-        }
-        div:nth-child(4) {
-            background-color: var(--lightblue);
-        }
-        div:nth-child(5) {
-            background-color: var(--dark-red-color);
-        }
-    }
+      // Color blocks by index
+      div:nth-child(1) { background-color: var(--grey-color); }
+      div:nth-child(2) { background-color: var(--highlight-yellow-color); }
+      div:nth-child(3) { background-color: var(--darkgreen-color); }
+      div:nth-child(4) { background-color: var(--lightblue); }
+      div:nth-child(5) { background-color: var(--dark-red-color); }
+  }
 }
 
-/* Media Query Adjustments */
+// ================================
+// Small Screens: Phones (< 390px)
+// ================================
 @media screen and (max-width: 390px) {
     .cost_revenue_container {
         grid-row: 8 / 9;
@@ -216,15 +224,15 @@
         text-align: center;
     }
 
-    .cost_rev_item_title{
-       height: 8vh;
+    .cost_rev_item_title {
+        height: 8vh;
     }
 
     .cost_rev_item {
         grid-template-columns: 1fr;
         gap: 1em;
         border: solid 1px grey;
-        border-radius: 10px;
+        border-radius: $bd-radius-max;
     }
 
     .cost_rev_item_elements {
@@ -239,21 +247,11 @@
             border-radius: 5px;
         }
 
-        div:nth-child(1) {
-            background-color: var(--grey-color);
-        }
-        div:nth-child(2) {
-            background-color: var(--highlight-yellow-color);
-        }
-        div:nth-child(3) {
-            background-color: var(--darkgreen-color);
-        }
-        div:nth-child(4) {
-            background-color: var(--lightblue);
-        }
-        div:nth-child(5) {
-            background-color: var(--dark-red-color);
-        }
+        div:nth-child(1) { background-color: var(--grey-color); }
+        div:nth-child(2) { background-color: var(--highlight-yellow-color); }
+        div:nth-child(3) { background-color: var(--darkgreen-color); }
+        div:nth-child(4) { background-color: var(--lightblue); }
+        div:nth-child(5) { background-color: var(--dark-red-color); }
     }
 
     .legends .cost p:nth-child(1),
@@ -262,14 +260,14 @@
     }
 }
 
-
+// ================================
+// Large Tablets / Small Laptops (1000px–1200px)
+// ================================
 @media screen and (min-width: 1000px) and (max-width: 1200px) {
-  /* Add your styles for 1000px to 1200px range */
-.cost_rev_item {
-    display: grid;
-    grid-template-columns: 25vw 65vw;
-    padding: 1em;
-    gap: 1em;
+  .cost_rev_item {
+      display: grid;
+      grid-template-columns: 25vw 65vw;
+      padding: 1em;
+      gap: 1em;
+  }
 }
-}
-

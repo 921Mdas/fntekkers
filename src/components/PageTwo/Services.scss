@@ -15,7 +15,7 @@
   width: 100%;
   text-align: center;
   border: solid 1px var(--border-light);
-  border-radius: 10px;
+  border-radius: $bd-radius-max;
   margin-bottom: 1em;
 }
 
@@ -41,7 +41,7 @@
     font-size: 1rem;
     margin-bottom: 1em;
     color: var(--numbers-color);
-    border-radius: 10px;
+    border-radius: $bd-radius-max;
   }
 
   .blocks {
@@ -55,7 +55,7 @@
     text-align: center;
     padding: 0.5em;
     font-size: 1rem;
-    border-radius: 10px;
+    border-radius: $bd-radius-max;
   }
 }
 
@@ -72,7 +72,7 @@
 
 .Potential_revenue{
   padding: 1em;
-  border-radius: 10px;
+  border-radius: $bd-radius-max;
   text-align: center;
   border: solid 1px var(--border-light);
   height: 100%;
@@ -85,7 +85,7 @@
   grid-column: 2/5;
   border: solid 1px var(--border-light);
   padding: 1em;
-  border-radius: 10px;
+  border-radius: $bd-radius-max;
 
 
   h3,
@@ -127,7 +127,7 @@
 .Services_note {
   background-color: var(--primary-color);
   padding: 1em;
-  border-radius: 10px;
+  border-radius: $bd-radius-max;
   grid-column: 1/2;
   border: solid 1px var(--border-light);
   height: 100%;
@@ -194,7 +194,7 @@
   z-index: 100;
   background-color: var(--dark-highlight-color);
   padding: 1em;
-  border-radius: 10px;
+  border-radius: $bd-radius-max;
   font-weight: bold;
 }
 
@@ -405,7 +405,7 @@
     width: 100%;
     background-color: var(--primary-color);
     padding: 0;
-    border-radius: 10px;
+    border-radius: $bd-radius-max;
   
   }
 
@@ -461,7 +461,7 @@
 .Services_note {
     background-color: var(--primary-color);
     padding: 1em;
-    border-radius: 10px;
+    border-radius: $bd-radius-max;
     grid-column: 1/-1;
     grid-row: 1/1;
     height: max-content;

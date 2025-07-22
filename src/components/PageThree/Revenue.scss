@@ -1,153 +1,160 @@
+// Import global styles from App.scss
 @import "../../App.scss";
 
-
-.revenue_ops_container{
-  grid-row: 7/7;
-  padding: 1rem;
-  @extend .pages_reset;  
-  // border: solid 1px pink;
-  gap: 1em;
+/* Main container for the revenue operations section */
+.revenue_ops_container {
+  grid-row: 7/7; // Position in parent grid (row 7)
+  padding: 1rem; // Internal spacing
+  @extend .pages_reset; // Extend base page reset styles
+  gap: 1em; // Gap between child elements
+  // border: solid 1px pink; // Debug border (commented out)
 }
 
-.revenue_ops_container{
-
-  h2{
-  color: var(--text-color);
-  text-align: center;
-  border: solid 1px var(--border-light);
-  padding: 1em;
-  border-radius: 10px;
-  margin-bottom: 1em;
-  }
+/* Style for the main heading */
+.revenue_ops_container h2 {
+  color: var(--text-color); // Text color from variables
+  text-align: center; // Center align text
+  border: solid 1px var(--border-light); // Light border
+  padding: 1em; // Internal spacing
+  border-radius: $bd-radius-max; // Maximum border radius
+  margin-bottom: 1em; // Bottom margin
 }
 
-.costs_container_bottom{
-div:nth-child(1) {
-    background: var(--highlight-color);
-    color: var(--background-color);
-}
-div:nth-child(2) {
-    background: var(--numbers-color);
-    color: var(--text-color);
-}
-div:nth-child(3) {
-    background: var(--border-light);
-    color: var(--text-color);
-}
-div:nth-child(4) {
-    background: var(--text-color);
-    color: var(--numbers-color);
-}
-div:nth-child(5) {
-    background: var(--bg-color-light);
-    color: var(--text-color);
-}
-div:nth-child(6) {
-    background: var(--dark-highlight-color);
-    color: var(--text-color);
-}
-
-}
-
-.costs_container_top{
-  div:nth-child(1){
-    background: var(--text-color);
-    color: var(--numbers-color);
+/* Bottom costs container - individual item colors */
+.costs_container_bottom {
+  div:nth-child(1) {
+    background: var(--highlight-color); // Primary highlight color
+    color: var(--background-color); // Contrast text color
   }
-  div:nth-child(2){
-    background: var(--highlight-color);
-    color: var(--background-color);
+  div:nth-child(2) {
+    background: var(--numbers-color); // Numbers/stat color
+    color: var(--text-color); // Main text color
   }
-  div:nth-child(3){
-    background: var(--dark-highlight-color);
+  div:nth-child(3) {
+    background: var(--border-light); // Light border color
     color: var(--text-color);
   }
-  div:nth-child(4){
-    background: var(--bg-color-light);
+  div:nth-child(4) {
+    background: var(--text-color); // Main text as background
+    color: var(--numbers-color); // Numbers color for text
+  }
+  div:nth-child(5) {
+    background: var(--bg-color-light); // Light background
     color: var(--text-color);
   }
-  div:nth-child(5){
-    background: var(--numbers-color);
-    color: var(--text-color);
-  }
-  div:nth-child(6){
-    background: var(--border-light);
+  div:nth-child(6) {
+    background: var(--dark-highlight-color); // Dark highlight
     color: var(--text-color);
   }
 }
 
-.costs_container_top,.costs_container_bottom{
+/* Top costs container - individual item colors */
+.costs_container_top {
+  div:nth-child(1) {
+    background: var(--text-color); // Main text as background
+    color: var(--numbers-color); // Numbers color for text
+  }
+  div:nth-child(2) {
+    background: var(--highlight-color); // Primary highlight
+    color: var(--background-color); // Contrast text
+  }
+  div:nth-child(3) {
+    background: var(--dark-highlight-color); // Dark highlight
+    color: var(--text-color);
+  }
+  div:nth-child(4) {
+    background: var(--bg-color-light); // Light background
+    color: var(--text-color);
+  }
+  div:nth-child(5) {
+    background: var(--numbers-color); // Numbers/stat color
+    color: var(--text-color);
+  }
+  div:nth-child(6) {
+    background: var(--border-light); // Light border color
+    color: var(--text-color);
+  }
+}
+
+/* Shared styles for top and bottom cost containers */
+.costs_container_top,
+.costs_container_bottom {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  align-items: center;
-  justify-content: center;
-  justify-items: center;
-  gap: 1em;
-  font-weight: bold;
-  
+  grid-template-columns: repeat(6, 1fr); // 6-column grid
+  align-items: center; // Vertical centering
+  justify-content: center; // Horizontal centering
+  justify-items: center; // Center items in grid cells
+  gap: 1em; // Gap between grid items
+  font-weight: bold; // Bold text
 
-
-  .cost_container_top{
-    border: solid 1px var(--border-light);
-    padding: 1em;
-    text-align: center;
-    color: var(--text-color);
-    margin-bottom: 2em;
-    border-radius: 10px;
-
+  /* Style for top container items */
+  .cost_container_top {
+    border: solid 1px var(--border-light); // Light border
+    padding: 1em; // Internal spacing
+    text-align: center; // Center text
+    color: var(--text-color); // Text color
+    margin-bottom: 2em; // Bottom margin
+    border-radius: $bd-radius-max; // Maximum border radius
   }
 
-
-
-  .cost_container_bottom{
+  /* Style for bottom container items */
+  .cost_container_bottom {
     border: solid 1px var(--border-light);
     padding: 1em;
     text-align: center;
     color: var(--text-color);
-    margin-top: 2em;
-    border-radius: 10px;
-
+    margin-top: 2em; // Top margin
+    border-radius: $bd-radius-max;
   }
 }
 
-  .cost_container_middle{
+/* Middle container with value proposition */
+.cost_container_middle {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); // 3-column grid
+  grid-template-rows: 8vh; // Fixed height row
+
+  /* Shared styles for left and right text containers */
+  .cost_container_text_left,
+  .cost_container_text_right {
+    color: var(--text-color);
+    text-align: center;
     display: grid;
-    grid-template-columns: repeat(3,1fr);
-    grid-template-rows: 8vh;
-    .cost_container_text_left, .cost_container_text_right{
-      color: var(--text-color);
-      text-align: center;
-      display: grid;
-      justify-content: center;
-      align-items: center;
-      border: solid 2px var(--border-light);
-      border-radius: 10px;
-      padding: 1em
-    }
- 
-    .cost_container_text_right,.cost_container_text_left{
-      @include flex(row, center, center, 1em);
-    }
+    justify-content: center; // Horizontal centering
+    align-items: center; // Vertical centering
+    border: solid 2px var(--border-light); // Thicker border
+    border-radius: $bd-radius-max;
+    padding: 1em; // Internal spacing
   }
 
-     .svg_icon{
-      color: var(--text-color);
-      @include flex(row, center, center, 1em);
-    }
+  /* Flex layout for text containers */
+  .cost_container_text_right,
+  .cost_container_text_left {
+    @include flex(row, center, center, 1em); // Flexbox mixin
+  }
+}
 
-    .profit_fintekkers{
-      padding: 1em;
-      margin-top: 0em;
-      text-align: center;
-      border-radius: 10px;
-      color: var(--text-color);
-      width: max-content;
-      margin: 0 auto;
-      border: solid 1px var(--border-light);
+/* Style for the central arrow icon */
+.svg_icon {
+  color: var(--text-color);
+  @include flex(row, center, center, 1em); // Flexbox mixin
+}
 
-      span{
-        font-size: 2rem;
-        color: var(--numbers-color);
-        font-weight: bold
-      }
-    }
+/* Revenue projection section at bottom */
+.profit_fintekkers {
+  padding: 1em;
+  margin-top: 0em;
+  text-align: center;
+  border-radius: $bd-radius-max;
+  color: var(--text-color);
+  width: max-content; // Width based on content
+  margin: 0 auto; // Horizontal centering
+  border: solid 1px var(--border-light);
+
+  /* Style for highlighted numbers */
+  span {
+    font-size: 2rem; // Larger text
+    color: var(--numbers-color); // Numbers color
+    font-weight: bold; // Bold text
+  }
+}
