@@ -1,137 +1,144 @@
 @import "../../App.scss";
 
+// Main container for the Problem page content
 .page_one {
-  color: var(--text-color);
-  grid-template-columns: 1fr 1fr;
-  padding: 1em;
-  @extend .pages_reset;  
+  color: var(--text-color); // Use theme text color
+  grid-template-columns: 1fr 1fr; // Two columns layout
+  padding: 1em; // Padding around content
+  @extend .pages_reset;  // Extend common page reset styles
+
+  // Uncomment these for debugging layout
   // grid-row: 3/3;
   // border: solid 1px blue;
-
 }
 
+// Headings styling for problem and solution titles
 .problem_headline, .why_title {
-  text-transform: uppercase;
+  text-transform: uppercase; // Uppercase text for emphasis
 }
 
+// Container for the list of problems, using grid to layout two columns
 .problem_list {
   display: grid;
-  gap: 1em;
-  grid-template-columns: 1fr 1fr;
-  
+  gap: 1em; // Space between grid items
+  grid-template-columns: 1fr 1fr; // Two equal columns
 }
 
+// Styling for each problem list group container
 .problem_list_group_one, .problem_list_group_two {
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 600; // Semi-bold text
   padding: 1em;
-  text-align: center;
+  text-align: center; // Center align text
 }
 
+// Background and border styles for first problem group
 .problem_list_group_one {
   background-color: var(--bg-color-light);
-  border-radius: 10px;
+  border-radius: $bd-radius-max; // Rounded corners
 }
 
+// Border and radius styling for second problem group
 .problem_list_group_two {
-  border-radius: 10px;
+  border-radius: $bd-radius-max;
   border: solid 1px var(--bg-color-light);
 }
 
+// Styling for individual problem list items
 .problem_list_one, .problem_list_two {
-  @include flex(column, start, center, 1em);
-  color: var(--text-color);
+  @include flex(column, start, center, 1em); // Flexbox layout, column direction, spacing 1em
+  color: var(--text-color); // Text color from theme
 }
 
-
+// Problem statement container and its inner content styling
 .problem_statement {
 
   .problem_statement_content {
-    @include flex(column, center, center, 1em);
-    line-height: 2em;
+    @include flex(column, center, center, 1em); // Flex column, centered horizontally and vertically, gap 1em
+    line-height: 2em; // Line height for readability
 
     li {
-      list-style-type: none;
-      padding: 1em;
+      list-style-type: none; // Remove default bullet points
+      padding: 1em; // Padding inside list items
     }
   }
 }
 
+// SVG icon container (currently hidden with opacity 0)
 .svg {
-  animation: float 3s ease-in-out infinite;
-  font-size: 10rem;
+  animation: float 3s ease-in-out infinite; // Floating animation effect
+  font-size: 10rem; // Large size for icon
   font-weight: bold;
   text-align: center;
   margin-top: .5em;
-  opacity: 0;
+  opacity: 0; // Initially hidden
 }
 
+// Container for the "Why FinTekkers" section
 .whyfintekkers {
-  @include flex(column, start, center, 1em);
-  border-radius: 10px;
+  @include flex(column, start, center, 1em); // Flex column, align start vertically, center horizontally, gap 1em
+  border-radius: $bd-radius-max;
+
+  // Title within the whyfintekkers section
   .why_title {
     text-align: center;
     width: 100%;
     margin-bottom: 1em;
-
   }
 }
 
+// Style for individual list item in the why list
 .why_list_one {
-  list-style-type: none;
-  background-color: var(--dark-highlight-color);
+  list-style-type: none; // Remove default list style
+  background-color: var(--dark-highlight-color); // Highlight background
   padding: 1em;
-  width: max-content;
+  width: max-content; // Width fits content
   font-weight: bold;
-  border-radius: 10px;
-  
+  border-radius: $bd-radius-max;
 
   span {
-    font-size: 5em;
+    font-size: 5em; // Large font size for any span inside
   }
 }
-.why_list_container{
-    width: 100%;
-    text-align: center;
-    @include flex(column, center, center, 1em);
 
-    
-}
-.why_solution{
-    border: solid 1px var(--dark-highlight-color);
-    padding:1em;
-    text-align: center;
-    border-radius: 10px;
+// Container for the why list, centered flex layout
+.why_list_container {
+  width: 100%;
+  text-align: center;
+  @include flex(column, center, center, 1em);
 }
 
+// Box around the solution text with border and padding
+.why_solution {
+  border: solid 1px var(--dark-highlight-color);
+  padding: 1em;
+  text-align: center;
+  border-radius: $bd-radius-max;
+}
 
 
-// Media queries
+// Responsive styles for small screen devices (mobile)
 @media screen and (max-width: 390px) {
   .page_one {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; // Single column layout on small screens
     width: 100%;
     height: max-content;
   }
 
-  .problem_statement{
-    margin-bottom: 2em;
+  .problem_statement {
+    margin-bottom: 2em; // Extra spacing below problem statement
   }
 
-   .problem_list{
-       display: grid;
-       grid-template-columns: 1fr;
-      
-    }
+  .problem_list {
+    display: grid;
+    grid-template-columns: 1fr; // Stack problem list items vertically
+  }
 
-   .problem_headline, .problem_subheadline{
-    text-align: center
-   }
+  .problem_headline, .problem_subheadline {
+    text-align: center; // Center text on small screens
+  }
 
   .whyfintekkers {
-    @include flex(column, center, center, 1em);
-
+    @include flex(column, center, center, 1em); // Centered flex layout
   }
 }
-
-

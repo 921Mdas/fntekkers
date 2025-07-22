@@ -24,7 +24,15 @@ h6 {
   opacity: 0.5;
 }
 
-   $primary-red:red;
+$bd-radius-max:5px;
+
+// media queries
+
+$small-screens: 480px;
+$regular-mobile-start: 481px;
+$regular-mobile-end: 768px;
+$tablets-start: 769px;
+$tablets-end: 1024px;
 
 
 :root {
@@ -40,6 +48,7 @@ h6 {
   --grey-color: rgb(165, 164, 164);
   --darkgreen-color: #027a76;
   --lightblue: rgb(0, 191, 255);
+
   --mono-font: "Roboto Mono", monospace;
   --roboto-font: "Roboto", sans-serif;
   --helvetica: "Helvetica";
@@ -47,6 +56,8 @@ h6 {
   --Dancing: "Dancing Script", cursive;
   --pen: "Great Vibes", cursive;
   --poppins: "Poppins", sans-serif;
+
+
   --small-screens: 480px;
   --regular-mobile-start: 481px;
   --regular-mobile-end: 768px;

@@ -1,23 +1,27 @@
+// Import global styles from App.scss
 @import "../../App.scss";
 
+/* Main container for the asset manager component */
 .assetmanager_container {
-    @extend .pages_reset_basic;
+    @extend .pages_reset_basic; // Extend base page reset styles
     display: grid;
     justify-content: center;
     align-items: center;
     justify-items: center;
-    grid-column: 1/-1;
-    color: var(--text-color);
+    grid-column: 1/-1; // Span full width of parent grid
+    color: var(--text-color); // Use CSS variable for text color
 }
 
+/* Hero section layout - main content container */
 .asset_hero_section {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 1em;
-    -webkit-overflow-scrolling: touch; /* Ensure smooth scrolling on iOS */
-    overflow-x: hidden; /* Prevent horizontal scroll */
+    grid-template-columns: repeat(5, 1fr); // 5-column grid layout
+    gap: 1em; // Gap between grid items
+    -webkit-overflow-scrolling: touch; // Smooth scrolling for iOS
+    overflow-x: hidden; // Prevent horizontal scroll
 }
 
+/* Decorative element (appears unused in current HTML) */
 .asset_bin {
     position: absolute;
     left: -10%;
@@ -26,37 +30,36 @@
     color: #5b5959;
 }
 
+/* Graphics container - left side of hero section */
 .asset_hero_section_graphics {
-    grid-column: 1/3;
-    border-radius: 10px;
+    grid-column: 1/3; // Span first 2 columns of 5-column grid
+    border-radius: $bd-radius-max; // Max border radius from variables
     width: 100%;
     height: 100%;
     position: relative;
-    border: 1px solid var(--border-light);
-    padding: 1em;
-
-
+    border: 1px solid var(--border-light); // Border with light color variable
+    padding: 1em; // Internal spacing
 }
 
+/* Container for the animated graph elements */
 .asset_hero_section_group {
     width: 90%;
     height: 90%;
     position: relative;
 
-
-
-
+    /* Individual graph elements */
     .asset_hero_graph {
         width: max-content;
         height: max-content;
         padding: .5em 1em;
-        border-radius: 10px;
+        border-radius: $bd-radius-max;
         position: absolute;
-        z-index: 1; /* Ensure content is above background graphics */
-        background-color: transparent; /* Clear background for better layering */
-        left: 25%;
-        transform-origin: center;
+        z-index: 1; // Ensure content appears above background elements
+        background-color: transparent; // Initially transparent
+        left: 25%; // Position from left
+        transform-origin: center; // Transform from center
 
+        /* Position and style each graph element individually */
         &:nth-child(1) {
             top: 0;
             background-color: var(--numbers-color);
@@ -77,6 +80,7 @@
             top: 80%;
             background-color: var(--dark-red-color);
         }
+        /* Additional decorative elements (appear unused) */
         &:nth-child(6) {
             background-color: var(--border-light);
             text-decoration: line-through;
@@ -91,86 +95,95 @@
     }
 }
 
+/* Text content container - right side of hero section */
 .asset_hero_section_text {
-    grid-column: 3/-1;
+    grid-column: 3/-1; // Span columns 3 to end
 
     h1 {
-        width: 30vw;
+        width: 30vw; // Responsive width based on viewport
     }
 
     h2 {
         width: 40vw;
+        color: var(--numbers-color); // Use numbers color variable
+    }
+}
+
+/* ====================== */
+/* RESPONSIVE BREAKPOINTS */
+/* ====================== */
+
+/* Large desktop/laptop (900px - 1200px) */
+@media screen and (min-width: 900px) and (max-width: 1200px) {
+    .asset_hero_section {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 1em;
+        width: 100vw; // Full viewport width
+        padding: 0 1em; // Horizontal padding
+        -webkit-overflow-scrolling: touch;
+        overflow-x: hidden;
+    }
+
+    /* Make text elements full width */
+    .asset_hero_section_text h1, 
+    .asset_hero_section_text h2 {
+        width: 100%;
+    }
+}
+
+/* Medium devices (391px - 1399px) - General adjustments */
+@media screen and (min-width: 391px) and (max-width: 1399px) {
+    .asset_hero_section_group {
+        width: 90%;
+        height: 100%;
+        position: relative;
+    }
+
+    /* Adjust graph elements */
+    .asset_hero_section_group .asset_hero_graph {
+        width: max-content;
+        height: max-content;
+        padding: 0.2em 1em; // Reduced padding
+        border-radius: $bd-radius-max;
+        position: absolute;
+        z-index: 1;
+        background-color: transparent;
+        left: 25%;
+        transform-origin: center;
+    }
+}
+
+/* Small tablets (701px - 899px) */
+@media screen and (min-width: 701px) and (max-width: 899px) {
+    .asset_hero_section_text h1 {
+        width: 55vw; // Adjusted width
+    }
+
+    .asset_hero_section_text h2 {
+        width: 50vw;
         color: var(--numbers-color);
     }
 }
 
-/* Target screens between 900px and 1200px */
-@media screen and (min-width: 900px) and (max-width: 1200px) {
-  .asset_hero_section {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 1em;
-    width: 100vw;
-    padding: 0 1em;
-    -webkit-overflow-scrolling: touch;
-    overflow-x: hidden;
-  }
-
-  .asset_hero_section_text h1, 
-  .asset_hero_section_text h2 {
-      width: 100%;
-  }
-}
-
-@media screen and (min-width: 391px) and (max-width: 1399px){
-
-    .asset_hero_section_group {
-    width: 90%;
-    height: 100%;
-    position: relative;
-}
-
-.asset_hero_section_group .asset_hero_graph {
-    width: max-content;
-    height: max-content;
-    padding: 0.2em 1em; 
-    border-radius: 10px;
-    position: absolute;
-    z-index: 1;
-    background-color: transparent;
-    left: 25%;
-    transform-origin: center;
-}
-
-}
-
-@media screen and (min-width: 701px) and (max-width: 899px) {
-  .asset_hero_section_text h1 {
-      width: 55vw;
-  }
-
-  .asset_hero_section_text h2 {
-      width: 50vw;
-      color: var(--numbers-color);
-  }
-}
-
-/* For smaller devices, i.e., below 700px */
+/* Mobile devices (391px - 700px) */
 @media screen and (min-width: 391px) and (max-width: 700px) {
     .asset_hero_section {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr; // Simplified 2-column layout
         grid-template-rows: auto auto;
         grid-template-areas:
             "graphics"
-            "text";
+            "text"; // Define grid areas
     }
 
+    /* Stack graph elements vertically */
     .asset_hero_section_group {
         .asset_hero_graph {
             position: relative;
-            top: 0 !important;
+            top: 0 !important; // Override any absolute positioning
 
+            /* Reset positioning for all children */
             &:nth-child(1),
             &:nth-child(2),
             &:nth-child(3),
@@ -178,41 +191,30 @@
             &:nth-child(5) {
                 left: 0;
                 top: 0;
-        
             }
 
-            &:nth-child(1) {
-            background-color: var(--numbers-color);
-        }
-        &:nth-child(2) {
-            background-color: var(--highlight-yellow-color);
-        }
-        &:nth-child(3) {
-            background-color: var(--highlight-color);
-        }
-        &:nth-child(4) {
-            background-color: var(--border-light);
-        }
-        &:nth-child(5) {
-            background-color: var(--dark-red-color);
-        }
-     
+            /* Maintain individual colors */
+            &:nth-child(1) { background-color: var(--numbers-color); }
+            &:nth-child(2) { background-color: var(--highlight-yellow-color); }
+            &:nth-child(3) { background-color: var(--highlight-color); }
+            &:nth-child(4) { background-color: var(--border-light); }
+            &:nth-child(5) { background-color: var(--dark-red-color); }
         }
     }
 
+    /* Adjust graphics container */
     .asset_hero_section_graphics, 
     .asset_hero_section_group {
-        width: 90vw;
+        width: 90vw; // Viewport-based width
         height: auto;
         position: relative;
     }
 
     .asset_hero_section_graphics {
-        grid-area: text;
-
+        grid-area: text; // Assign to text area
     }
 
- 
+    /* Stack graph elements in single column */
     .asset_hero_section_group {
         display: grid;
         grid-template-columns: 1fr;
@@ -223,11 +225,12 @@
         width: 70vw;
         margin: 0 auto;
         padding: 1em;
-        border-radius: 10px;
+        border-radius: $bd-radius-max;
     }
 
+    /* Adjust text section */
     .asset_hero_section_text {
-        grid-area: graphics;
+        grid-area: graphics; // Assign to graphics area
         text-align: center;
         display: flex;
         flex-direction: column;
@@ -235,23 +238,23 @@
 
         h1 {
             width: 100%;
-            font-size: 1.5rem;
+            font-size: 1.5rem; // Reduced font size
         }
 
         h2 {
             width: 100%;
             color: var(--numbers-color);
-            font-size: 1rem;
+            font-size: 1rem; // Reduced font size
         }
     }
 }
 
-/* Mobile styles for very small screens (390px and below) */
+/* Extra small mobile devices (up to 390px) */
 @media screen and (max-width: 390px) {
     .assetmanager_container {
         grid-column: 1 / -1;
         grid-row: 2/2;
-        height: 80vh;
+        height: 80vh; // Viewport-based height
     }
 
     .asset_hero_section {
@@ -263,11 +266,11 @@
             "text";
     }
 
+    /* Similar to previous breakpoint but with additional adjustments */
     .asset_hero_section_group {
         .asset_hero_graph {
             position: relative;
             top: 0 !important;
-        
 
             &:nth-child(1),
             &:nth-child(2),
@@ -279,29 +282,17 @@
                 background-color: var(--numbers-color);
             }
 
-
-               &:nth-child(1) {
-            background-color: var(--numbers-color);
-        }
-        &:nth-child(2) {
-            background-color: var(--highlight-yellow-color);
-        }
-        &:nth-child(3) {
-            background-color: var(--highlight-color);
-        }
-        &:nth-child(4) {
-            background-color: var(--border-light);
-        }
-        &:nth-child(5) {
-            background-color: var(--dark-red-color);
-        }
-     
+            /* Individual colors */
+            &:nth-child(1) { background-color: var(--numbers-color); }
+            &:nth-child(2) { background-color: var(--highlight-yellow-color); }
+            &:nth-child(3) { background-color: var(--highlight-color); }
+            &:nth-child(4) { background-color: var(--border-light); }
+            &:nth-child(5) { background-color: var(--dark-red-color); }
             &:nth-child(6) {
                 background-color: var(--border-light);
                 text-decoration: line-through;
                 transform: rotate(5deg);
             }
-
             &:nth-child(7) {
                 left: 0;
                 background-color: var(--border-light);
@@ -311,6 +302,7 @@
         }
     }
 
+    /* Remove border and adjust sizing */
     .asset_hero_section_graphics, 
     .asset_hero_section_group {
         width: 90vw;
@@ -323,6 +315,7 @@
         grid-area: text;
     }
 
+    /* Single column layout for smallest screens */
     .asset_hero_section_group {
         display: grid;
         grid-template-columns: 1fr;
@@ -334,11 +327,10 @@
         margin: 0 auto;
         border: solid 1px var(--border-light);
         padding: 1em;
-        border-radius: 10px;
+        border-radius: $bd-radius-max;
     }
 
-    
-
+    /* Text adjustments */
     .asset_hero_section_text {
         grid-area: graphics;
         text-align: center;
